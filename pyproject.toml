@@ -5,6 +5,7 @@ description = "Learning lab for OpenAI and Anthropic agent development stacks."
 requires-python = ">=3.11"
 dependencies = [
     "openai",
+    "openai-agents>=0.17.0",
 ]
 
 [tool.ruff]
