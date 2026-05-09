@@ -18,6 +18,7 @@ Use this structure for generated video notes. Adapt headings to the video, but k
 本地素材：
 
 - 视频：`local-media/youtube/<slug>/<file>.mp4`
+- QuickTime 兼容视频：`local-media/youtube/<slug>/<file>.quicktime.mp4`
 - 字幕：`local-media/youtube/<slug>/<file>.zh-Hans.srt`
 - 元数据：`local-media/youtube/<slug>/<file>.info.json`
 - 关键画面抽帧：`local-media/youtube/<slug>/frames/`

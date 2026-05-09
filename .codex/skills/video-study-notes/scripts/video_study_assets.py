@@ -22,6 +22,11 @@ from typing import Any
 
 DEFAULT_MEDIA_ROOT = Path("local-media/youtube")
 JS_RUNTIMES = ("deno", "node", "bun", "qjs", "quickjs")
+QUICKTIME_FORMAT = (
+    "bv*[ext=mp4][vcodec^=avc1][height<=1080]+ba[ext=m4a][acodec^=mp4a]"
+    "/b[ext=mp4][vcodec^=avc1][height<=1080]"
+    "/bv*+ba/b"
+)
 
 
 def run(cmd: list[str], check: bool = True) -> subprocess.CompletedProcess[str]:
@@ -129,6 +134,13 @@ def safe_slug(text: str) -> str:
 def find_first(directory: Path, suffixes: tuple[str, ...]) -> Path | None:
     files = sorted(p for p in directory.iterdir() if p.is_file() and p.suffix.lower() in suffixes)
     return files[0] if files else None
+
+
+def find_video(directory: Path) -> Path | None:
+    quicktime = sorted(directory.glob("*.quicktime.mp4"))
+    if quicktime:
+        return quicktime[0]
+    return find_first(directory, (".mp4", ".mkv", ".webm", ".mov"))
 
 
 def parse_srt(path: Path) -> list[tuple[float, str]]:
@@ -416,7 +428,7 @@ def frame_times(info: dict[str, Any]) -> list[float]:
 
 
 def extract_frames(directory: Path, info: dict[str, Any], force: bool) -> Path | None:
-    video = find_first(directory, (".mp4", ".mkv", ".webm", ".mov"))
+    video = find_video(directory)
     if not video:
         return None
 
@@ -473,7 +485,7 @@ def extract_frames(directory: Path, info: dict[str, Any], force: bool) -> Path |
 
 def download(url: str, directory: Path, proxy: str | None, force: bool) -> None:
     directory.mkdir(parents=True, exist_ok=True)
-    has_video = find_first(directory, (".mp4", ".mkv", ".webm", ".mov"))
+    has_video = find_video(directory)
     has_info = find_first(directory, (".json",))
     if has_video and has_info and not force:
         return
@@ -483,13 +495,13 @@ def download(url: str, directory: Path, proxy: str | None, force: bool) -> None:
         "--no-playlist",
         "--no-progress",
         "-f",
-        "bv*+ba/b",
+        QUICKTIME_FORMAT,
         "--merge-output-format",
         "mp4",
         "-P",
         f"home:{directory}",
         "-o",
-        "%(title)s [%(id)s].%(ext)s",
+        "%(title)s [%(id)s].quicktime.%(ext)s",
         "--write-subs",
         "--write-auto-subs",
         "--sub-langs",
@@ -521,7 +533,7 @@ def write_manifest(
     comments: list[dict[str, Any]],
 ) -> Path:
     info = load_info(directory)
-    video = find_first(directory, (".mp4", ".mkv", ".webm", ".mov"))
+    video = find_video(directory)
     subtitle = choose_subtitle(directory)
     info_path = find_first(directory, (".json",))
     thumbnail = find_first(directory, (".webp", ".jpg", ".png"))

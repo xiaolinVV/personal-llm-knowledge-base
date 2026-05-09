@@ -14,6 +14,7 @@
 本地素材：
 
 - 视频：`local-media/youtube/2025-07-22-mark-agent-claude-code/Agent 的概念、原理与构建模式 —— 从零打造一个简化版的 Claude Code [GE0pFiFJTKo].mp4`
+- QuickTime 兼容视频：`local-media/youtube/2025-07-22-mark-agent-claude-code/Agent 的概念、原理与构建模式 —— 从零打造一个简化版的 Claude Code [GE0pFiFJTKo].quicktime.mp4`
 - 字幕：`local-media/youtube/2025-07-22-mark-agent-claude-code/Agent 的概念、原理与构建模式 —— 从零打造一个简化版的 Claude Code [GE0pFiFJTKo].zh-Hans.srt`
 - 元数据：`local-media/youtube/2025-07-22-mark-agent-claude-code/Agent 的概念、原理与构建模式 —— 从零打造一个简化版的 Claude Code [GE0pFiFJTKo].info.json`
 - 关键画面抽帧：`local-media/youtube/2025-07-22-mark-agent-claude-code/frames/`
