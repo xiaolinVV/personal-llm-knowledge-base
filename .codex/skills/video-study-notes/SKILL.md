@@ -1,0 +1,75 @@
+---
+name: video-study-notes
+description: Download and preserve learning videos, subtitles, metadata, keyframes, comments, and companion links/code repositories, then turn them into structured Chinese study notes with Mermaid diagrams. Use when Codex needs to process YouTube or other yt-dlp-supported learning videos, update a watchlist with a finished-note link, create video companion notes, extract transcript/comment insights, find GitHub or other code links, or preserve process diagrams from video frames.
+---
+
+# Video Study Notes
+
+Use this skill to turn one learning video into durable project knowledge: local media assets plus a readable Chinese note.
+
+## Workflow
+
+1. Locate the source URL.
+   - If the user points to a watchlist, read it and pick the named video.
+   - Preserve the original video URL in the final note.
+
+2. Capture local assets.
+   - Prefer the helper script:
+
+     ```bash
+     python3 .codex/skills/video-study-notes/scripts/video_study_assets.py capture \
+       'VIDEO_URL' \
+       --slug 'YYYY-MM-DD-channel-topic'
+     ```
+
+   - The script saves assets under `local-media/youtube/<slug>/`, which should stay ignored by Git.
+   - If terminal access to YouTube needs a local proxy, the script auto-detects macOS system proxy settings. Override with `--proxy http://127.0.0.1:PORT` or disable with `--proxy none`.
+   - Comments are captured by default with `--comments-limit 200`; use `--skip-comments` only when comments are irrelevant or too slow.
+   - If assets already exist, use `--skip-download` to regenerate transcripts, comments, manifests, and keyframes without downloading again.
+
+3. Read only the needed generated files.
+   - Start with `asset-manifest.md`.
+   - Use `transcript-clean.txt` for content.
+   - Use `chapter-transcript.md` for timeline structure.
+   - Use `comments-digest.md` for pinned comments, code links, author clarifications, and high-signal audience feedback.
+   - Inspect `frames/contact-keyframes.jpg` and selected `frames/frame-*.jpg` when the video includes diagrams, UI flows, or architecture visuals.
+
+4. Write the note in `notes/`.
+   - Use `references/note-template.md` as the structure.
+   - Name the note from the original video title, lightly refined only when the title is too long or contains awkward filesystem characters.
+   - Include local asset paths, source metadata, companion links/code repositories, timeline, core explanation, Mermaid diagrams, engineering caveats, references, and unverified items.
+   - Add a `配套资源 / 代码地址` section. Prefer code links extracted in `asset-manifest.md`; include GitHub, Gitee, GitLab, Bitbucket, Hugging Face, project docs, or course materials.
+   - Add a `评论区补充` section when comments exist. Prioritize pinned comments, uploader replies, code links, corrections, implementation caveats, and strong conceptual clarifications.
+   - If the transcript mentions a repo or source code but no concrete URL is found in metadata/description/comments, say that explicitly instead of inventing a link.
+   - Recreate important diagrams as Mermaid instead of relying only on screenshots.
+   - Do not paste a long transcript. Summarize and transform.
+
+5. Update the source watchlist when applicable.
+   - Add a short `已沉淀` entry linking to the new note.
+   - Do not rewrite unrelated watchlist rankings.
+
+## Diagram Rules
+
+- Use Mermaid for repeatable conceptual diagrams: flowcharts, sequence diagrams, state loops, data-flow diagrams.
+- Derive diagrams from subtitles plus keyframes. Do not invent architecture that the video does not support.
+- When the video shows a process, preserve the process shape:
+  - ReAct-style loops become `flowchart` or `sequenceDiagram`.
+  - Multi-role interactions become `sequenceDiagram`.
+  - Planning/replanning loops become `flowchart TD`.
+
+## Accuracy Rules
+
+- Distinguish transcript-derived notes from verified facts.
+- For current APIs, SDKs, models, or product behavior, verify against official documentation before stating them as current.
+- If example code from the video was not run locally, add it under `未验证事项`.
+- For high-risk Agent actions, explicitly mention human review: shell commands, file writes outside a sandbox, database mutations, email, payment, deployment, and account actions.
+
+## Output Standard
+
+A finished run should leave:
+
+- Downloaded video/subtitle/metadata/keyframe assets under `local-media/youtube/<slug>/`.
+- Downloaded comments and a comments digest under `local-media/youtube/<slug>/` when comments are available.
+- A structured note under `notes/<original-video-title>.md`.
+- A watchlist back-link if the video came from a watchlist.
+- A clear final response listing paths and what was not verified.

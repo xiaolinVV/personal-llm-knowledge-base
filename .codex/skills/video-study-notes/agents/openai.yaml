@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Study Notes"
+  short_description: "下载学习视频字幕评论代码链接并生成结构化中文学习笔记"
+  default_prompt: "Use $video-study-notes to download this learning video, extract comments/code links, and create a structured Chinese note with Mermaid diagrams."

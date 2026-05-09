@@ -31,6 +31,7 @@
 - `notes/`: 学习笔记。
 - `research/use-cases/`: 实际应用场景调研。
 - `research/open-source-projects/`: 开源项目拆解。
+- `.codex/skills/`: 项目内可复用 Skill。处理学习视频沉淀时优先使用 `video-study-notes`。
 
 ## 每次新增实验
 

@@ -24,6 +24,10 @@
 
 ## 第一优先级
 
+已沉淀：
+
+- [Agent 的概念、原理与构建模式：从零打造一个简化版的 Claude Code](Agent%20的概念、原理与构建模式：从零打造一个简化版的%20Claude%20Code.md)
+
 | 顺序 | 视频 | 频道 | 适合学什么 | 判断 |
 |---|---|---|---|---|
 | 1 | [Agent 的概念、原理与构建模式：从零打造一个简化版的 Claude Code](https://www.youtube.com/watch?v=GE0pFiFJTKo) | 马克的技术工作坊 | Agent 底层原理、Claude Code 类工具怎么运作 | 必看。中文里少见的原理型资源，不只是工具演示。 |
