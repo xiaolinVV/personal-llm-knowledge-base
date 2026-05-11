@@ -1,6 +1,6 @@
-# Video Study Note Template
+# Video Fieldbook Note Template
 
-Use this structure for generated video notes. Adapt headings to the video, but keep the verification boundary.
+Use this structure for generated video notes. Adapt headings to the video, but keep the archive judgment and verification boundary.
 
 ```markdown
 # <Video Title>
@@ -38,6 +38,14 @@ Use this structure for generated video notes. Adapt headings to the video, but k
 
 <总结置顶评论、作者回复、高赞评论中的代码链接、纠错、实现细节、环境提醒和概念澄清。忽略广告、水评和无关内容。>
 
+## Fieldbook 归档判断
+
+- 内容类型：<资料消化 / 技术研究 / 工具观察 / 案例拆解 / 实验验证>
+- 当前归档：`notes/`
+- 是否值得升级为 lab：<是 / 否>
+- 判断理由：<如果值得升级，说明要验证哪个 API、SDK、工具链、失败模式或工程判断；如果不值得，说明为什么停留在笔记或研究记录即可。>
+- 后续应进入：<`research/` / `labs/` / 暂不升级>
+
 ## 一句话结论
 
 <把视频最核心的判断压缩成一段。>
@@ -71,9 +79,21 @@ sequenceDiagram
 
 1. <权限、人审、状态、工具边界、失败处理。>
 
-## 和学习路线的关系
+## 工程判断
 
-<说明它适合放在哪个学习阶段，以及后续该看什么。>
+- 适合什么场景：<这个能力、工具或方法适合解决什么现实问题。>
+- 不适合什么场景：<什么时候不该用，或者用它会把问题搞复杂。>
+- 风险和边界：<权限、成本、可靠性、状态管理、评估、数据安全等。>
+
+## 后续研究问题
+
+- <哪些点需要查官方文档、源码、论文、案例或真实项目。>
+
+## 实验验证建议
+
+- 要验证什么：<具体判断，不要写泛泛的“学习一下”。>
+- 最小实验形式：<CLI、Notebook、小型 Agent、对比脚本、复现实验等。>
+- 是否现在就做：<是 / 否；说明原因。>
 
 ## 参考资料
 

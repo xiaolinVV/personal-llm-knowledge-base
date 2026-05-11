@@ -16,9 +16,9 @@ LAB_DIR = Path(__file__).resolve().parent
 DEFAULT_DATA_DIR = LAB_DIR / "data"
 
 SYSTEM_INSTRUCTIONS = """
-You are a research assistant for an AI Agent learning lab.
+You are a research assistant for an AI Agent fieldbook.
 Use web search for current public information.
-Use file search for the local learning-lab corpus.
+Use file search for the local fieldbook corpus.
 Do not pretend retrieved content is model memory.
 When sources are available, cite them clearly in the answer.
 """.strip()

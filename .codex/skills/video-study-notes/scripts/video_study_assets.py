@@ -761,7 +761,7 @@ def write_manifest(
         "",
         "## Next Step",
         "",
-        "Use this manifest plus `transcript-clean.txt`, `chapter-transcript.md`, and keyframes to write the final note in `notes/`.",
+        "Use this manifest plus `transcript-clean.txt`, `chapter-transcript.md`, comments, and keyframes to write a fieldbook note.",
     ])
 
     manifest = directory / "asset-manifest.md"

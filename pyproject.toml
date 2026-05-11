@@ -1,7 +1,7 @@
 [project]
-name = "ai-agent-learning-lab"
+name = "ai-agent-fieldbook"
 version = "0.1.0"
-description = "Learning lab for OpenAI and Anthropic agent development stacks."
+description = "Fieldbook for AI Agent learning research, case studies, and focused experiments."
 requires-python = ">=3.11"
 dependencies = [
     "openai",
