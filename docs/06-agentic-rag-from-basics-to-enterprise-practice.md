@@ -748,16 +748,16 @@ flowchart LR
 
 | 主题 | 仓库资料 |
 | --- | --- |
-| RAG 基础机制 | [RAG 工作机制详解](../notes/RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md) |
-| Python 最小实现 | [使用Python构建RAG系统](../notes/使用Python构建RAG系统%20——%20用代码还原%20RAG系统的每个细节.md) |
-| Agentic RAG | [工业级实战：从传统RAG到Agentic RAG的进阶优化](../notes/工业级实战：从传统RAG到Agentic%20RAG的进阶优化！.md) |
+| RAG 基础机制 | [RAG 工作机制详解](../notes/rag/RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md) |
+| Python 最小实现 | [使用Python构建RAG系统](../notes/rag/使用Python构建RAG系统%20——%20用代码还原%20RAG系统的每个细节.md) |
+| Agentic RAG | [工业级实战：从传统RAG到Agentic RAG的进阶优化](../notes/rag/工业级实战：从传统RAG到Agentic%20RAG的进阶优化！.md) |
 | OpenAI 检索实验 | [Lab 03: Tools and Retrieval](../labs/openai/03-tools-and-rag/README.md) |
-| RAGFlow 总结 | [RAGFlow 与企业 RAG 专项学习笔记](../notes/RAGFlow%20与企业%20RAG%20专项学习笔记.md) |
-| RAGFlow 官方评测 | [RAGFlow 官方评测体系与测试数据集调研](../notes/2026-05-13-ragflow-official-evaluation-research.md) |
-| Dify + RAGFlow | [Dify + RAGFlow 混合架构](../notes/Dify%20+%20RAGFlow：1%20+%201＞2%20的混合架构，详细教程%20+%20实施案例.md) |
-| RAGFlow 外接 Dify | [RAGFlow 作为外部知识库接入 Dify](../notes/RAGFlow%20作为外部知识库接入%20Dify.md) |
+| RAGFlow 总结 | [RAGFlow 与企业 RAG 专项学习笔记](../notes/ragflow/RAGFlow%20与企业%20RAG%20专项学习笔记.md) |
+| RAGFlow 官方评测 | [RAGFlow 官方评测体系与测试数据集调研](../notes/ragflow/2026-05-13-ragflow-official-evaluation-research.md) |
+| Dify + RAGFlow | [Dify + RAGFlow 混合架构](../notes/ragflow/Dify%20+%20RAGFlow：1%20+%201＞2%20的混合架构，详细教程%20+%20实施案例.md) |
+| RAGFlow 外接 Dify | [RAGFlow 作为外部知识库接入 Dify](../notes/ragflow/RAGFlow%20作为外部知识库接入%20Dify.md) |
 | 企业评测数据集 | [企业级 RAG 问答质量测试数据集调研报告](../research/use-cases/2026-05-15-enterprise-rag-eval-datasets.md) |
-| Context Engineering | [Context Engineering：概念与技术实现深度解析](../notes/Context%20Engineering：概念与技术实现深度解析.md) |
+| Context Engineering | [Context Engineering：概念与技术实现深度解析](../notes/agent-systems/Context%20Engineering：概念与技术实现深度解析.md) |
 
 ## 17. 官方校准来源
 

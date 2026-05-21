@@ -39,7 +39,7 @@
   - <https://www.youtube.com/watch?v=geEDnyFY_dw>
 - 相关本地笔记：
   - [从 LLM 到 Agent Skill，一期视频带你打通底层逻辑！](从%20LLM%20到%20Agent%20Skill，一期视频带你打通底层逻辑！.md)
-  - [为什么越来越多的人抛弃 MCP，转向 CLI？](为什么越来越多的人抛弃%20MCP，转向%20CLI？.md)
+  - [为什么越来越多的人抛弃 MCP，转向 CLI？](../mcp-cli-browser/为什么越来越多的人抛弃%20MCP，转向%20CLI？.md)
 
 ## 评论区补充
 
@@ -291,7 +291,7 @@ flowchart LR
 - Cursor Skills 文档：<https://cursor.com/cn/docs/context/skills>
 - VS Code Copilot Agent Skills 文档：<https://code.visualstudio.com/docs/copilot/customization/agent-skills>
 - 本地相关笔记：[从 LLM 到 Agent Skill，一期视频带你打通底层逻辑！](从%20LLM%20到%20Agent%20Skill，一期视频带你打通底层逻辑！.md)
-- 本地相关笔记：[为什么越来越多的人抛弃 MCP，转向 CLI？](为什么越来越多的人抛弃%20MCP，转向%20CLI？.md)
+- 本地相关笔记：[为什么越来越多的人抛弃 MCP，转向 CLI？](../mcp-cli-browser/为什么越来越多的人抛弃%20MCP，转向%20CLI？.md)
 
 ## 未验证事项
 

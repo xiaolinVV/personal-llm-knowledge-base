@@ -34,7 +34,7 @@
   - <https://www.youtube.com/watch?v=WWdlme1EAGI>
 - 相关本地笔记：
   - [Token 到底是什么？揭秘大模型背后的文字压缩术](Token%20到底是什么？揭秘大模型背后的文字压缩术.md)
-  - [RAG 工作机制详解——一个高质量知识库背后的技术全流程](RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md)
+  - [RAG 工作机制详解——一个高质量知识库背后的技术全流程](../rag/RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md)
 
 ## 评论区补充
 
@@ -300,7 +300,7 @@ flowchart TD
 - OpenAI API 参数文档：<https://platform.openai.com/docs/api-reference/responses/create>
 - Google Gemini 生成配置文档：<https://ai.google.dev/gemini-api/docs/text-generation>
 - 本地相关笔记：[Token 到底是什么？揭秘大模型背后的文字压缩术](Token%20到底是什么？揭秘大模型背后的文字压缩术.md)
-- 本地相关笔记：[RAG 工作机制详解——一个高质量知识库背后的技术全流程](RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md)
+- 本地相关笔记：[RAG 工作机制详解——一个高质量知识库背后的技术全流程](../rag/RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md)
 
 ## 未验证事项
 

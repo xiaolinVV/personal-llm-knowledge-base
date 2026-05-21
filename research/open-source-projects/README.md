@@ -30,6 +30,7 @@ langgraph-project-name.md
 
 ## 已沉淀报告
 
+- [RAGFlow 专项：官方材料与实践案例证据审计](./ragflow/)
 - [2026-05-21 Agent-Native CLI 与真实浏览器工具调研：CLI-Anything、OpenCLI、bb-browser](./2026-05-21-agent-native-cli-browser-runtime-research.md)
 - [2026-05-19 Lark CLI 调研](./2026-05-19-lark-cli-research.md)
 - [2026-05-15 HTML Anything 调研](./2026-05-15-html-anything-research.md)

@@ -51,9 +51,9 @@ RAGFlow 要单独看。它和 Dify、n8n、Coze 不是完全同类：Dify/n8n/Co
 
 已沉淀：
 
-- [RAG 工作机制详解——一个高质量知识库背后的技术全流程](RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md)
-- [工业级实战：从传统RAG到Agentic RAG的进阶优化！](工业级实战：从传统RAG到Agentic%20RAG的进阶优化！.md)
-- [RAGFlow 与企业 RAG 专项学习笔记](RAGFlow%20与企业%20RAG%20专项学习笔记.md)
+- [RAG 工作机制详解——一个高质量知识库背后的技术全流程](../rag/RAG%20工作机制详解——一个高质量知识库背后的技术全流程.md)
+- [工业级实战：从传统RAG到Agentic RAG的进阶优化！](../rag/工业级实战：从传统RAG到Agentic%20RAG的进阶优化！.md)
+- [RAGFlow 与企业 RAG 专项学习笔记](../ragflow/RAGFlow%20与企业%20RAG%20专项学习笔记.md)
 
 | 顺序 | 视频 | 频道 | 适合学什么 | 判断 |
 |---|---|---|---|---|
@@ -105,18 +105,18 @@ RAGFlow 官方仓库把自己定位为开源 RAG 引擎，并强调 Agent 能力
 
 已沉淀：
 
-- [RAGFlow 与企业 RAG 专项学习笔记](RAGFlow%20与企业%20RAG%20专项学习笔记.md)
-- [RAGFlow：知识库终极引擎](RAGFlow：知识库终极引擎.md)
-- [RAGFlow：采用 OCR 和深度文档理解的新一代 RAG 引擎](RAGFlow：采用%20OCR%20和深度文档理解的新一代%20RAG%20引擎.md)
-- [RAGFlow 命中率最高的 RAG 知识库引擎 本地部署 小白教程](RAGFlow%20命中率最高的%20RAG%20知识库引擎%20本地部署%20小白教程.md)
-- [Ragflow 小白教程（详细重制版）](Ragflow%20小白教程（详细重制版）.md)
-- [零基础教程：RAGFlow 快速创建知识库和智能问答系统](零基础教程：RAGFlow%20快速创建知识库和智能问答系统.md)
-- [Dify + RAGFlow：1 + 1＞2 的混合架构，详细教程 + 实施案例](Dify%20+%20RAGFlow：1%20+%201＞2%20的混合架构，详细教程%20+%20实施案例.md)
-- [RAGFlow 作为外部知识库接入 Dify](RAGFlow%20作为外部知识库接入%20Dify.md)
-- [Qwen3 + RAGFlow 构建个人知识库](Qwen3%20+%20RAGFlow%20构建个人知识库.md)
-- [DeepSeek + RAGFlow 构建个人知识库，2026 本地化部署](DeepSeek%20+%20RAGFlow%20构建个人知识库，2026%20本地化部署.md)
-- [RAGflow 知识库 + 参数可调架构 + 本地大模型，让 AI 化身佛学顾问](RAGflow%20知识库%20+%20参数可调架构%20+%20本地大模型，让%20AI%20化身佛学顾问.md)
-- [用 RAGFlow 打造 AI 医疗问诊助手](用%20RAGFlow%20打造%20AI%20医疗问诊助手.md)
+- [RAGFlow 与企业 RAG 专项学习笔记](../ragflow/RAGFlow%20与企业%20RAG%20专项学习笔记.md)
+- [RAGFlow：知识库终极引擎](../ragflow/RAGFlow：知识库终极引擎.md)
+- [RAGFlow：采用 OCR 和深度文档理解的新一代 RAG 引擎](../ragflow/RAGFlow：采用%20OCR%20和深度文档理解的新一代%20RAG%20引擎.md)
+- [RAGFlow 命中率最高的 RAG 知识库引擎 本地部署 小白教程](../ragflow/RAGFlow%20命中率最高的%20RAG%20知识库引擎%20本地部署%20小白教程.md)
+- [Ragflow 小白教程（详细重制版）](../ragflow/Ragflow%20小白教程（详细重制版）.md)
+- [零基础教程：RAGFlow 快速创建知识库和智能问答系统](../ragflow/零基础教程：RAGFlow%20快速创建知识库和智能问答系统.md)
+- [Dify + RAGFlow：1 + 1＞2 的混合架构，详细教程 + 实施案例](../ragflow/Dify%20+%20RAGFlow：1%20+%201＞2%20的混合架构，详细教程%20+%20实施案例.md)
+- [RAGFlow 作为外部知识库接入 Dify](../ragflow/RAGFlow%20作为外部知识库接入%20Dify.md)
+- [Qwen3 + RAGFlow 构建个人知识库](../ragflow/Qwen3%20+%20RAGFlow%20构建个人知识库.md)
+- [DeepSeek + RAGFlow 构建个人知识库，2026 本地化部署](../ragflow/DeepSeek%20+%20RAGFlow%20构建个人知识库，2026%20本地化部署.md)
+- [RAGflow 知识库 + 参数可调架构 + 本地大模型，让 AI 化身佛学顾问](../ragflow/RAGflow%20知识库%20+%20参数可调架构%20+%20本地大模型，让%20AI%20化身佛学顾问.md)
+- [用 RAGFlow 打造 AI 医疗问诊助手](../ragflow/用%20RAGFlow%20打造%20AI%20医疗问诊助手.md)
 
 | 视频 | 频道 | 适合学什么 | 判断 |
 |---|---|---|---|

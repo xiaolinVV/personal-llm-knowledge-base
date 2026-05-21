@@ -27,9 +27,17 @@
 
 ## 文件约定
 
-- `docs/`: 路线、原则、官方资源、主题索引。
+- `docs/`: 路线、原则、官方资源、主题索引和主线专题。
 - `labs/`: 可运行实验，只放需要验证关键判断的最小实验。
-- `notes/`: 视频、文章、课程、概念、工具的学习笔记和资料消化。
+- `notes/`: 视频、文章、课程、概念、工具的学习笔记和资料消化；按主题子目录归档。
+- `notes/openai/`: OpenAI 主线学习笔记和实验复盘。
+- `notes/agent-systems/`: Agent 架构、Agent Skill、Context Engineering、生产工程经验。
+- `notes/llm-basics/`: token、采样参数等 LLM 基础概念。
+- `notes/mcp-cli-browser/`: MCP、CLI 工具、浏览器自动化和 Codex Chrome 相关笔记。
+- `notes/rag/`: RAG 基础机制、最小实现和 Agentic RAG 笔记。
+- `notes/ragflow/`: RAGFlow 专项视频、官方资料、部署、评测和 Dify 集成笔记。
+- `notes/watchlists/`: 临时学习清单和候选资料筛选。
+- `research/`: 研究报告入口索引。
 - `research/use-cases/`: 实际应用场景调研。
 - `research/open-source-projects/`: 开源项目拆解。
 - `.codex/skills/`: 项目内可复用 Skill。处理学习视频沉淀时优先使用 `video-study-notes`。

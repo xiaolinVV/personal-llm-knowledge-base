@@ -116,7 +116,7 @@ uv run python labs/openai/03-tools-and-rag/research_assistant_cli.py \
 uv run python labs/openai/03-tools-and-rag/research_assistant_cli.py \
   --prepare-vector-store \
   --file docs/03-openai-stack.md \
-  --file notes/2026-05-08-openai-responses-api-lab01.md
+  --file notes/openai/2026-05-08-openai-responses-api-lab01.md
 ```
 
 ## 输出说明

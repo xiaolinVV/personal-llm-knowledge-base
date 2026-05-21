@@ -2,7 +2,7 @@
 
 日期：2026-05-12
 
-来源清单：[中文 AI Agent 实践落地 YouTube 学习清单](2026-05-08-agent-practice-youtube-cn-watchlist.md)
+来源清单：[中文 AI Agent 实践落地 YouTube 学习清单](../watchlists/2026-05-08-agent-practice-youtube-cn-watchlist.md)
 
 官方校准：
 

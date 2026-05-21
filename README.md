@@ -16,8 +16,8 @@
 
 这个 fieldbook 按四层沉淀内容：
 
-1. 资料消化：视频、文章、课程、官方文档的学习笔记，放在 `notes/`。
-2. 技术研究：围绕一个主题做深入分析，比如 Context Engineering、MCP、CLI 工具、Agent runtime，放在 `research/` 或专题文档中。
+1. 资料消化：视频、文章、课程、官方文档的学习笔记，按主题放在 `notes/`。
+2. 技术研究：围绕一个主题做深入分析，比如 Context Engineering、MCP、CLI 工具、Agent runtime，放在 `research/` 或 `docs/` 的专题文档中。
 3. 案例拆解：真实产品、开源项目、行业场景的结构化拆解，放在 `research/use-cases/` 或 `research/open-source-projects/`。
 4. 实验验证：只有当资料里有关键假设需要验证，才升级成 `labs/` 里的最小可运行实验。
 
@@ -33,12 +33,14 @@
 ```text
 .
 ├── docs/
+│   ├── README.md
 │   ├── 00-learning-principles.md
 │   ├── 01-roadmap.md
 │   ├── 02-official-resources.md
 │   ├── 03-openai-stack.md
 │   ├── 04-anthropic-stack.md
-│   └── 05-field-research-plan.md
+│   ├── 05-field-research-plan.md
+│   └── 06-agentic-rag-from-basics-to-enterprise-practice.md
 ├── labs/
 │   ├── openai/
 │   │   ├── 01-responses-api/
@@ -49,10 +51,28 @@
 │   │   └── 06-sandbox-agents/
 │   └── anthropic/
 ├── research/
+│   ├── README.md
 │   ├── open-source-projects/
 │   └── use-cases/
 └── notes/
+    ├── README.md
+    ├── agent-systems/
+    ├── llm-basics/
+    ├── mcp-cli-browser/
+    ├── openai/
+    ├── rag/
+    ├── ragflow/
+    └── watchlists/
 ```
+
+## 快速入口
+
+- [主线文档](docs/README.md)：学习原则、路线、官方资料和专题索引。
+- [学习笔记](notes/README.md)：按主题归档的视频、文章、课程和工具观察。
+- [OpenAI 实验](labs/openai/README.md)：Responses API、Agents SDK、工具调用、RAG、handoffs 等最小实验。
+- [研究报告](research/README.md)：真实应用场景和开源项目拆解。
+- [Agentic RAG 专题](docs/06-agentic-rag-from-basics-to-enterprise-practice.md)：从 RAG 基础到企业实践的主线总结。
+- [RAGFlow 专项](notes/ragflow/README.md)：RAGFlow 视频笔记、官方资料、评测和集成研究入口。
 
 ## 研究主线
 
@@ -101,7 +121,7 @@
 
 每研究一个主题，至少尽量留下这几样东西：
 
-- 一份学习笔记或研究记录，放在 `notes/` 或 `research/`。
+- 一份学习笔记或研究记录，按主题放在 `notes/` 或 `research/`。
 - 一份问题清单：哪些地方官方文档、视频或文章没讲清楚。
 - 一份工程判断：这个能力适合什么场景，不适合什么场景。
 - 如果值得验证，再补一个可运行实验，放在对应 `labs/` 子目录。

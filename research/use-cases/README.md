@@ -27,3 +27,10 @@ financial-research.md
 可做的最小实验：
 ```
 
+## 已沉淀报告
+
+- [AI 应用层泡沫、成本结构与长期机会调研主题](./2026-05-17-ai-application-layer-economics.md)
+- [AI 应用层经济性与物理 AI Deep Research 提示词](./2026-05-17-ai-application-layer-deep-research-prompt.md)
+- [AI 应用层出清、成本结构、商业模式与 Physical AI 研究报告](./AI%20应用层出清、成本结构、商业模式与%20Physical%20AI%20研究报告.md)
+- [企业级 RAG 问答质量测试数据集调研报告](./2026-05-15-enterprise-rag-eval-datasets.md)
+- [AI 做 PPT：Codex app + ImageGen + Slides/Presentations 抖音调研报告](./2026-05-20-ai-ppt-codex-imagegen-slides-douyin-research.md)
