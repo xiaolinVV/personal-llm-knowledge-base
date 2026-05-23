@@ -69,7 +69,7 @@ site:jingxuan.douyin.com/m/video "open-slide" "PPT"
 
 | 优先级 | 抖音结果 | 发布日期 | 时长 | 相关方向 | 当前判断 |
 | --- | --- | --- | --- | --- | --- |
-| S | [每天一个AI小技巧：用AI生成可编辑PPT，地表最强方法](https://www.douyin.com/video/7641918938359614726) | 2026-05-20 | 06:09 | Codex + Skills + 可编辑 PPT | 用户实看推荐样本。作者为“欧ge陪你学AI”，标题和标签明确包含 `#codex`、`#ppt`、`#AI工具`、`#skills`；元数据抓取时显示 470 个赞、318 个收藏、55 次分享。优先补看。 |
+| S | [每天一个AI小技巧：用AI生成可编辑PPT，地表最强方法](https://www.douyin.com/video/7641918938359614726) | 2026-05-20 | 06:09 | Codex + Skills + 可编辑 PPT | 用户实看推荐样本。作者为“欧ge陪你学AI”，标题和标签明确包含 `#codex`、`#ppt`、`#AI工具`、`#skills`；已补看并沉淀 SOP：[用 AI 生成可编辑 PPT：Codex + ImageGen + Presentations 最佳实践拆解](../../notes/openai/2026-05-20-douyin-codex-imagegen-presentations-ppt-sop.md)。 |
 | S | [ai快速做ppt：image 2.0 + codex 做 PPT](https://www.douyin.com/note/7639780588463961083) | 2026-05-15 | 图文 | Images 2 + Codex + 可编辑 PPT | 用户实看推荐样本。作者为“去看看”，描述里给出实践心得：长 PPT 用 GPT 效果不稳，换 Codex 更好；想生成可编辑 PPT，先生成图片，再用提示词转成 PPT。元数据抓取时显示 9,779 个赞、10,532 个收藏、2,526 次分享、193 条评论。 |
 | S | [用AI做PPT，首选Codex](https://jingxuan.douyin.com/m/video/7640458725416881450) | 2026-05-16 | 03:46 | Codex + Presentations + PPT | 精准命中本次主题。描述明确提到“插件 Presentations 的效果完全 OK”，并强调结合 Codex 搜索和项目文档管理。 |
 | A | [用好这6大技巧，用Images 2做出精美的PPT](https://jingxuan.douyin.com/m/video/7636959309649300772) | 2026-05-07 | 05:13 | Images 2 / GPT Image 2 + PPT 视觉资产 | 适合补 image2 在 PPT 中的边界：封面、图标、配图、排版美化。注意它更偏视觉，不等于原生 PPTX 工作流。 |
