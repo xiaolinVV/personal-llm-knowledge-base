@@ -1,0 +1,58 @@
+{
+  "dataset_id": "InfiniFlow/company_financial_research_agent",
+  "source_url": "https://huggingface.co/datasets/InfiniFlow/company_financial_research_agent",
+  "downloaded_at": "2026-05-24T04:00:29.417939+00:00",
+  "huggingface_revision": "974dab3714b26560ab4fc6d1a21b8535a69a94aa",
+  "huggingface_last_modified": "2025-09-30T06:05:22.000Z",
+  "license": "apache-2.0",
+  "zip_lfs_sha256_from_hf": "5535c9b21472ff17bfa93153d580dcda76112d0ea6440db296906125d76c06d6",
+  "zip_sha256_local": "5535c9b21472ff17bfa93153d580dcda76112d0ea6440db296906125d76c06d6",
+  "zip_sha256_matches_hf_lfs": true,
+  "raw_files": [
+    {
+      "local_path": "raw/.gitattributes",
+      "bytes": 2461,
+      "sha256": "e7a120ab07b1bc5b486be249e9fc6c83d59448d0093e1dfebe95d1566d9cafc0"
+    },
+    {
+      "local_path": "raw/README.md",
+      "bytes": 31,
+      "sha256": "4bcf87ecfbbb8e07a01b21415a970c8b53a5283bf6872b657040d3f45c9241f7"
+    },
+    {
+      "local_path": "raw/internal_stock_research_zh.zip",
+      "bytes": 1015227,
+      "sha256": "5535c9b21472ff17bfa93153d580dcda76112d0ea6440db296906125d76c06d6"
+    }
+  ],
+  "extracted_files": [
+    {
+      "zip_name": "2025─Ω░δ─Ω▒¿╡π╞└ú║╣·▓·AI╦π┴ª┴·═╖ú¼2025Q2╥╡╝¿╤╙╨°╕▀╘÷╠¼╩╞.pdf",
+      "decoded_name": "2025年半年报点评：国产AI算力龙头，2025Q2业绩延续高增态势.pdf",
+      "local_path": "extracted/2025年半年报点评：国产AI算力龙头，2025Q2业绩延续高增态势.pdf",
+      "bytes": 680462,
+      "sha256": "e276dc8187c9c6b2d8f5d2976ea6e26884e6380df4b2a5dff1c2c043c2713971"
+    },
+    {
+      "zip_name": "╣½╦╛╝≥╞└▒¿╕µú║╢■╝╛╢╚╥╡╝¿═¼╗╖▒╚┤≤╘÷ú¼╢¿╘÷╧ε─┐╝╙┬δ╚φ╙▓╝■╞╜╠¿╤╨╖ó.pdf",
+      "decoded_name": "公司简评报告：二季度业绩同环比大增，定增项目加码软硬件平台研发.pdf",
+      "local_path": "extracted/公司简评报告：二季度业绩同环比大增，定增项目加码软硬件平台研发.pdf",
+      "bytes": 436674,
+      "sha256": "dfb1a72fb5f512c3649fa1a6ea119be84d3646389338a43e7727f03f95ecf535"
+    },
+    {
+      "zip_name": "╣·─┌╩╨│í╣╔╞▒╤╨╛┐▒¿╕µ.json",
+      "decoded_name": "国内市场股票研究报告.json",
+      "local_path": "extracted/国内市场股票研究报告.json",
+      "bytes": 25420,
+      "sha256": "c179d0a93a302e72a26f22b24a11e02a342958cf856287ac954843192ff3bf64"
+    },
+    {
+      "zip_name": "╣·═Γ╩╨│í╣╔╞▒╤╨╛┐▒¿╕µ.json",
+      "decoded_name": "国外市场股票研究报告.json",
+      "local_path": "extracted/国外市场股票研究报告.json",
+      "bytes": 26563,
+      "sha256": "b923914e777737f3723703364b88bcd44cd8465b12fb80b1cd8dc9c4a0c76d51"
+    }
+  ]
+}
