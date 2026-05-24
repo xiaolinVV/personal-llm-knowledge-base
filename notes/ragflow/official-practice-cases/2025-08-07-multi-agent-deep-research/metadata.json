@@ -1,0 +1,82 @@
+{
+  "title": "RAGFlow 0.20.0 - Multi-Agent Deep Research",
+  "source_url": "https://ragflow.io/blog/ragflow-0.20.0-multi-agent-deep-research",
+  "canonical_url": "https://ragflow.io/blog/ragflow-0.20.0-multi-agent-deep-research",
+  "published": "2025-08-07T00:00:00.000Z",
+  "description": "Deep Research: The defining capability of the Agent era",
+  "fetched_at": "2026-05-24T03:37:29.386970+00:00",
+  "files": {
+    "raw_html": "original.html",
+    "local_html": "article-local.html",
+    "markdown": "article.md",
+    "markdown_zh": "article.zh.md",
+    "images_dir": "images/"
+  },
+  "images": [
+    {
+      "index": 1,
+      "original_src": "/assets/images/multi-agent-cdbe17ff1feaf067d1fbc7b2e611c0fe.png",
+      "alt": "Figure 1",
+      "width": "1840",
+      "height": "772",
+      "resolved_url": "https://ragflow.io/assets/images/multi-agent-cdbe17ff1feaf067d1fbc7b2e611c0fe.png",
+      "local_path": "images/01-multi-agent-cdbe17ff1feaf067d1fbc7b2e611c0fe.png",
+      "content_type": "image/png",
+      "bytes": 1279385,
+      "sha256": "a00858000c714496bca757191b8f9513c619faaa2fd9af3cb4dcfa17ceedff15",
+      "status": "saved"
+    },
+    {
+      "index": 2,
+      "original_src": "/assets/images/planning-5790c1a10f4140e2bf10dd4bc952b762.PNG",
+      "alt": "Image",
+      "width": "1280",
+      "height": "502",
+      "resolved_url": "https://ragflow.io/assets/images/planning-5790c1a10f4140e2bf10dd4bc952b762.PNG",
+      "local_path": "images/02-planning-5790c1a10f4140e2bf10dd4bc952b762.PNG",
+      "content_type": "image/png",
+      "bytes": 193224,
+      "sha256": "851229a2165adbb726b951055c27c83f2f34940c69c4e740176d4c707b90fee4",
+      "status": "saved"
+    },
+    {
+      "index": 3,
+      "original_src": "/assets/images/1-047be262074651a6edadaf924e7a0b46.PNG",
+      "alt": "Image",
+      "width": "1280",
+      "height": "601",
+      "resolved_url": "https://ragflow.io/assets/images/1-047be262074651a6edadaf924e7a0b46.PNG",
+      "local_path": "images/03-1-047be262074651a6edadaf924e7a0b46.PNG",
+      "content_type": "image/png",
+      "bytes": 223868,
+      "sha256": "7bf28f61326dc4f1efb087028636692840ee13c0f4677a1d8ad76d93230a3725",
+      "status": "saved"
+    },
+    {
+      "index": 4,
+      "original_src": "/assets/images/2-27f2cbec898c99199f40770bf0c3e9f4.png",
+      "alt": "Figure 4",
+      "width": "1280",
+      "height": "488",
+      "resolved_url": "https://ragflow.io/assets/images/2-27f2cbec898c99199f40770bf0c3e9f4.png",
+      "local_path": "images/04-2-27f2cbec898c99199f40770bf0c3e9f4.png",
+      "content_type": "image/png",
+      "bytes": 81070,
+      "sha256": "27df0fdb065fdea935bb04efdcdf815b782be89cb9377c5dba2cd7d7ffa983cd",
+      "status": "saved"
+    },
+    {
+      "index": 5,
+      "original_src": "/assets/images/4-ee0282dfbef105c063f3ff1b6ab39231.png",
+      "alt": "Image",
+      "width": "1582",
+      "height": "604",
+      "resolved_url": "https://ragflow.io/assets/images/4-ee0282dfbef105c063f3ff1b6ab39231.png",
+      "local_path": "images/05-4-ee0282dfbef105c063f3ff1b6ab39231.png",
+      "content_type": "image/png",
+      "bytes": 292423,
+      "sha256": "ee660075a4d6c34be631e3e3b8682bb936acfa4c34d29f7d2035520c5a7524f7",
+      "status": "saved"
+    }
+  ]
+}
