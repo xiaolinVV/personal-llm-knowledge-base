@@ -11,3 +11,27 @@ build/
 .DS_Store
 *.log
 local-media/
+
+# Presentation generation intermediates. Keep final deliverables under output/
+# trackable, but ignore scratch plans, slide modules, renders, layouts, assets,
+# and build manifests produced by the Presentations workflow.
+outputs/**/presentations/**/slides/
+outputs/**/presentations/**/preview/
+outputs/**/presentations/**/layout/
+outputs/**/presentations/**/assets/
+outputs/**/presentations/**/qa/
+outputs/**/presentations/**/node_modules/
+outputs/**/presentations/**/package.json
+outputs/**/presentations/**/build_*.mjs
+outputs/**/presentations/**/claim-spine.txt
+outputs/**/presentations/**/contact-sheet-plan.txt
+outputs/**/presentations/**/design-system.txt
+outputs/**/presentations/**/profile-plan.txt
+outputs/**/presentations/**/source-notes.txt
+outputs/**/presentations/**/reference-audit.txt
+outputs/**/presentations/**/data.json
+outputs/**/presentations/**/output/artifact-build-manifest.json
+outputs/**/presentations/**/output/slide-*.png
+
+# Superseded full-page PNG roadmap draft. The editable deck is the deliverable.
+outputs/**/presentations/ai-agent-fieldbook-roadmap/
