@@ -1,12 +1,15 @@
 # RAGFlow 官方 Docker 部署记录
 
-日期：2026-05-13（服务器时区：Asia/Shanghai）
+初始部署日期：2026-05-13（服务器时区：Asia/Shanghai）
+
+最近同步：2026-05-26，已从 `v0.25.2` 升级到官方发布版 `v0.25.5`。
 
 ## 结论
 
 本机适合按 RAGFlow 官方仓库的 Docker Compose 标准方式部署 RAGFlow。
 
-- 已部署版本：`infiniflow/ragflow:v0.25.2`
+- 当前运行版本：`infiniflow/ragflow:v0.25.5`
+- 初始部署版本：`infiniflow/ragflow:v0.25.2`
 - 代码目录：`/home/fjhc/dev/ragflow`
 - Compose 目录：`/home/fjhc/dev/ragflow/docker`
 - Web 访问地址：`http://192.168.10.131:18080`
@@ -17,13 +20,13 @@
 
 ## 本机环境评估
 
-官方 `v0.25.2` README 的最低要求：
+官方 `v0.25.5` README 的最低要求：
 
 | 项目 | 官方最低要求 | 本机情况 | 判断 |
 | --- | --- | --- | --- |
 | CPU | `>= 4 cores` | 64 cores | 满足 |
 | RAM | `>= 16 GB` | 125 GiB | 满足 |
-| Disk | `>= 50 GB` | 部署后仍有约 796 GiB 可用 | 满足 |
+| Disk | `>= 50 GB` | 升级后仍有约 784 GiB 可用 | 满足 |
 | Docker | `>= 24.0.0` | `29.3.1` | 满足 |
 | Docker Compose | `>= v2.26.1` | `v5.1.1` | 满足 |
 | 架构 | 官方镜像仅支持 x86 | `x86_64` | 满足 |
@@ -35,16 +38,17 @@
 
 ## 版本选择
 
-当前选择：
+当前运行：
 
 ```bash
-RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.2
+RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.5
 ```
 
 选择理由：
 
-- `v0.25.2` 是实施时从官方仓库 tags 验证到的最新稳定发布 tag。
-- 官方 README 默认示例也是 `v0.25.2`。
+- `v0.25.5` 是 2026-05-26 核对到的官方最新稳定发布版，GitHub release 发布时间为 2026-05-20。
+- `v0.25.2` 是 2026-05-13 初始部署时从官方仓库 tags 验证到的最新稳定发布 tag，现在只作为历史记录保留。
+- 官方 README 默认示例已更新为 `v0.25.5`。
 - `nightly` 是“最近测试过”的镜像，但不是稳定发布版；学习和内网实践没必要先吃这个风险。
 - `v0.22.0` 起官方只发布不带 embedding 模型的 slim 形态镜像，并且不再追加 `-slim` 后缀。
 - `v0.21.1` 这类老版本有带 embedding 的 full 镜像，但为了内置模型牺牲当前版本功能和维护路径，不划算。
@@ -96,7 +100,7 @@ ADMIN_SVR_HTTP_PORT=19381
 SVR_MCP_PORT=19382
 GO_HTTP_PORT=19384
 GO_ADMIN_PORT=19383
-RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.2
+RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.5
 TEI_MODEL=${TEI_MODEL:-Qwen/Qwen3-Embedding-0.6B}
 TEI_PORT=16380
 ```
@@ -106,7 +110,7 @@ TEI_PORT=16380
 拉取官方代码并固定 tag：
 
 ```bash
-git clone --depth 1 --branch v0.25.2 https://github.com/infiniflow/ragflow.git /home/fjhc/dev/ragflow
+git clone --depth 1 --branch v0.25.5 https://github.com/infiniflow/ragflow.git /home/fjhc/dev/ragflow
 ```
 
 修改配置：
@@ -119,7 +123,7 @@ vim .env
 至少确认：
 
 ```bash
-RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.2
+RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.5
 MEM_LIMIT=17179869184
 SVR_WEB_HTTP_PORT=18080
 SVR_HTTP_PORT=19380
@@ -236,6 +240,101 @@ ss -ltnp
 
 说明：这证明服务没有被绑定到 `127.0.0.1`。真实局域网客户端访问还受宿主机防火墙、交换机/VLAN、路由策略影响；本次未修改防火墙。
 
+## 2026-05-26 升级记录
+
+升级前状态：
+
+```text
+docker-ragflow-cpu-1   infiniflow/ragflow:v0.25.2   Up 13 days
+```
+
+官方核对：
+
+- GitHub 最新 release：`v0.25.5`
+- 发布时间：2026-05-20 12:08:27 UTC
+- 官方升级要求：代码和 Docker 镜像 tag 必须同时升级；不要执行 `down -v`。
+
+本次处理：
+
+```bash
+cd /home/fjhc/dev/ragflow
+git fetch --tags origin
+git stash push -m ragflow-pre-upgrade-v0.25.2-env -- docker/.env
+git checkout --detach v0.25.5
+```
+
+随后只把本机定制配置重新同步到 `docker/.env`，没有恢复旧版本 `.env` 整文件，避免把 `v0.25.5` 的新配置模板打回旧状态。保留的本机定制包括：
+
+```bash
+MEM_LIMIT=17179869184
+EXPOSE_MYSQL_PORT=15455
+MINIO_CONSOLE_PORT=19001
+MINIO_PORT=19000
+REDIS_PORT=16379
+SVR_WEB_HTTP_PORT=18080
+SVR_WEB_HTTPS_PORT=18443
+SVR_HTTP_PORT=19380
+ADMIN_SVR_HTTP_PORT=19381
+SVR_MCP_PORT=19382
+GO_HTTP_PORT=19384
+GO_ADMIN_PORT=19383
+RAGFLOW_IMAGE=infiniflow/ragflow:v0.25.5
+TEI_PORT=16380
+```
+
+拉取镜像并重启：
+
+```bash
+cd /home/fjhc/dev/ragflow/docker
+docker compose --env-file .env -f docker-compose.yml pull ragflow-cpu
+docker compose --env-file .env -f docker-compose.yml down
+docker compose --env-file .env -f docker-compose.yml up -d
+```
+
+注意：本次只执行 `down`，没有执行 `down -v`，所以不会删除 `docker_mysql_data`、`docker_minio_data`、`docker_esdata01`、`docker_redis_data` 等数据卷。
+
+升级后验证：
+
+```text
+docker-ragflow-cpu-1   infiniflow/ragflow:v0.25.5   Up
+docker-es01-1          elasticsearch:8.11.3         Up (healthy)
+docker-mysql-1         mysql:8.0.39                 Up (healthy)
+docker-minio-1         pgsty/minio:RELEASE.2026-03-25T00-00-00Z   Up (healthy)
+docker-redis-1         valkey/valkey:8              Up (healthy)
+```
+
+Web 验证：
+
+```bash
+curl -I --max-time 15 http://127.0.0.1:18080/
+```
+
+关键结果：
+
+```text
+HTTP/1.1 200 OK
+Server: nginx/1.29.5
+```
+
+日志关键结果：
+
+```text
+RAGFlow version: v0.25.5
+RAGFlow admin version: v0.25.5
+RAGFlow data sync version: v0.25.5
+RAGFlow ingestion version: v0.25.5
+RAGFlow server is ready
+RAGFlow ingestion is ready
+```
+
+保留的回滚参考：
+
+```text
+stash@{Tue May 26 10:48:37 2026}: On (no branch): ragflow-pre-upgrade-v0.25.2-env
+```
+
+这份 stash 只用于回看旧 `.env` 的本机端口和内存定制，不建议直接 `stash pop` 到当前版本。直接恢复旧 `.env` 整文件，可能会覆盖 `v0.25.5` 新增或调整过的配置项。
+
 ## 日常维护命令
 
 进入部署目录：
@@ -345,8 +444,10 @@ RAGFlow 官方要求升级时同时升级两件事：
 ```bash
 cd /home/fjhc/dev/ragflow
 docker compose --env-file docker/.env -f docker/docker-compose.yml down
+git status --short
+git stash push -m ragflow-pre-upgrade-vX.Y.Z-env -- docker/.env
 git fetch --tags
-git checkout -f vX.Y.Z
+git checkout --detach vX.Y.Z
 vim docker/.env
 docker compose --env-file docker/.env -f docker/docker-compose.yml pull
 docker compose --env-file docker/.env -f docker/docker-compose.yml up -d
@@ -358,7 +459,19 @@ docker compose --env-file docker/.env -f docker/docker-compose.yml up -d
 RAGFLOW_IMAGE=infiniflow/ragflow:vX.Y.Z
 ```
 
+还必须重新确认本机端口规划没有被官方默认 `.env` 覆盖：
+
+```bash
+SVR_WEB_HTTP_PORT=18080
+SVR_HTTP_PORT=19380
+EXPOSE_MYSQL_PORT=15455
+MINIO_PORT=19000
+REDIS_PORT=16379
+```
+
 不要只改镜像、不切代码；也不要只切代码、不改镜像。入口脚本和配置模板可能随版本变化，不匹配就是给自己制造故障。
+
+不要在有本机定制的 `.env` 上盲目执行 `git checkout -f`。它会把本机端口、内存限制等改回官方默认值，服务可能能启动，但端口会冲突或暴露方式变化。这种“理论上干净”的升级很容易破坏真实使用环境。
 
 ## 启用本地 TEI embedding
 
@@ -449,8 +562,9 @@ ss -ltnp
 
 ## 官方参考
 
-- RAGFlow README `v0.25.2`：<https://github.com/infiniflow/ragflow/blob/v0.25.2/README.md>
-- Docker 配置说明：<https://github.com/infiniflow/ragflow/blob/v0.25.2/docs/administrator/configurations/configurations.md>
-- 升级说明：<https://github.com/infiniflow/ragflow/blob/v0.25.2/docs/administrator/upgrade_ragflow.mdx>
-- 备份与迁移说明：<https://github.com/infiniflow/ragflow/blob/v0.25.2/docs/administrator/migration/backup_and_migration.md>
-- 本地模型部署说明：<https://github.com/infiniflow/ragflow/blob/v0.25.2/docs/guides/models/deploy_local_llm.mdx>
+- RAGFlow `v0.25.5` release：<https://github.com/infiniflow/ragflow/releases/tag/v0.25.5>
+- RAGFlow README `v0.25.5`：<https://github.com/infiniflow/ragflow/blob/v0.25.5/README.md>
+- Docker 配置说明：<https://github.com/infiniflow/ragflow/blob/v0.25.5/docs/administrator/configurations/configurations.md>
+- 升级说明：<https://github.com/infiniflow/ragflow/blob/v0.25.5/docs/administrator/upgrade_ragflow.mdx>
+- 备份与迁移说明：<https://github.com/infiniflow/ragflow/blob/v0.25.5/docs/administrator/migration/backup_and_migration.md>
+- 本地模型部署说明：<https://github.com/infiniflow/ragflow/blob/v0.25.5/docs/guides/models/deploy_local_llm.mdx>
