@@ -31,6 +31,9 @@ langgraph-project-name.md
 ## 已沉淀报告
 
 - [RAGFlow 专项：官方材料与实践案例证据审计](./ragflow/)
+- [2026-05-26 CloakBrowser 深入落地使用手册](./2026-05-26-cloakbrowser-implementation-guide.md)
+- [2026-05-25 CloakBrowser 开源项目调研](./2026-05-25-cloakbrowser-research.md)
+- [2026-05-25 Crawl4AI 开源项目调研](./2026-05-25-crawl4ai-research.md)
 - [2026-05-21 Agent-Native CLI 与真实浏览器工具调研：CLI-Anything、OpenCLI、bb-browser](./2026-05-21-agent-native-cli-browser-runtime-research.md)
 - [2026-05-19 Lark CLI 调研](./2026-05-19-lark-cli-research.md)
 - [2026-05-15 HTML Anything 调研](./2026-05-15-html-anything-research.md)
