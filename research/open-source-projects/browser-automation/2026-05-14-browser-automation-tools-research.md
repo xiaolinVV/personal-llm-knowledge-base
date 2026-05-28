@@ -1,6 +1,6 @@
 # 浏览器自动化工具深度调研：Playwright、MCP、CLI 与 Agent 浏览器
 
-调研日期：2026-05-14  
+调研日期：2026-05-14；更新核对：2026-05-28 16:53 CST
 调研对象：
 
 - https://github.com/epiral/bb-browser
@@ -16,7 +16,7 @@
 
 - 一手来源：GitHub 仓库 README、package.json、pyproject.toml、release、源码片段、官方安全/隐私说明。
 - 包元数据：npm registry、PyPI。
-- 仓库状态：GitHub REST API，数据抓取于 2026-05-14。
+- 仓库状态：GitHub REST API，原始数据抓取于 2026-05-14；关键版本和包状态更新核对于 2026-05-28 16:53 CST。
 - 本报告没有做本地安装、跑通、压测或真实任务评测。没有验证就不装作验证过。
 
 ## 核心判断
@@ -54,18 +54,33 @@
 
 ## 仓库与包状态
 
-说明：`open_issues_count` 为 GitHub API 字段，不等于 bug 数。npm 下载量为 2026-04-13 到 2026-05-12 的 last-month 统计，npm 有统计延迟。
+下表已按 2026-05-28 16:53 CST 的 GitHub API、npm registry、PyPI 结果更新。真正需要改判断的是这些：
+
+| 项目 | 2026-05-28 官方核对 | 对原报告的影响 |
+|---|---|---|
+| `epiral/bb-browser` | GitHub latest release 仍是 `bb-browser-v0.11.6`，但 git tag 到 `v0.13.2`，npm latest 是 `bb-browser@0.13.3`，2026-05-27 发布 | 原 2026-05-14 快照里的 `0.11.6` 已不适合作为安装版本；这个项目的 release、tag、npm 三条线存在漂移，落地时优先按 npm pin，并记录 git tag |
+| `browser-use/browser-use` | GitHub release / PyPI 均为 `0.12.9`，2026-05-26；PyPI 要求 Python `>=3.11,<4.0` | 原 2026-05-14 快照里的 `0.12.6` 已过时；Python 版本门槛也要按 PyPI 当前元数据看 |
+| `ChromeDevTools/chrome-devtools-mcp` | GitHub release / npm 均为 `chrome-devtools-mcp-v1.1.1` / `1.1.1`，2026-05-27；Node 要求 `^20.19.0 || ^22.12.0 || >=23` | 原 2026-05-14 快照里的 `0.26.0` 明显过时；这是主版本变化，做 MCP 工具实验前必须重读官方 README / changelog |
+| `microsoft/playwright-python` | GitHub release / PyPI 均为 `v1.60.0` / `1.60.0`，2026-05-18；Python `>=3.9` | 原 2026-05-14 快照里的 `v1.59.0` 已过时；与 Node 版 Playwright 当前稳定版重新对齐 |
+| `microsoft/playwright` | GitHub release / npm 仍为 `v1.60.0` / `1.60.0` | 原表版本仍可用 |
+| `microsoft/playwright-cli` | GitHub release / npm 仍为 `v0.1.13` / `0.1.13` | 原表版本仍可用，但仍然是早期 `0.1.x` 工具 |
+| `microsoft/playwright-mcp` | GitHub release / npm 仍为 `v0.0.75` / `0.0.75` | 原表版本仍可用；npm 另有 `next` alpha，不应误当 stable |
+| `vercel-labs/agent-browser` | GitHub release / npm 仍为 `v0.27.0` / `0.27.0` | 原表版本仍可用 |
+
+结论：分层判断没过时；会影响安装和选型的过时点集中在 `chrome-devtools-mcp`、`browser-use`、`bb-browser` 和 Playwright Python。
+
+说明：`open_issues_count` 为 GitHub API 字段，不等于 bug 数。npm 下载量这次没有重新统计，不再放进当前快照表，避免把历史下载区间误读成当前数据。
 
 | 项目 | 语言 | License | Stars / Forks | open_issues_count | 最新发布 | 最近 push | 包状态 |
 |---|---:|---:|---:|---:|---|---|---|
-| `epiral/bb-browser` | TypeScript | MIT | 5,150 / 507 | 85 | `bb-browser-v0.11.6`, 2026-05-11 | 2026-05-11 | npm `bb-browser@0.11.6`，last-month 6,309 downloads |
-| `browser-use/browser-use` | Python | MIT | 93,868 / 10,606 | 227 | `0.12.6`, 2026-04-02 | 2026-05-13 | PyPI `browser-use==0.12.6` |
-| `microsoft/playwright-cli` | TypeScript | Apache-2.0 | 10,329 / 538 | 8 | `v0.1.13`, 2026-05-07 | 2026-05-07 | npm `@playwright/cli@0.1.13`，last-month 1,986,979 downloads |
-| `ChromeDevTools/chrome-devtools-mcp` | TypeScript | Apache-2.0 | 39,559 / 2,508 | 96 | `chrome-devtools-mcp-v0.26.0`, 2026-05-12 | 2026-05-14 | npm `chrome-devtools-mcp@0.26.0`，last-month 6,163,267 downloads |
-| `vercel-labs/agent-browser` | Rust | Apache-2.0 | 32,973 / 2,038 | 463 | `v0.27.0`, 2026-05-07 | 2026-05-13 | npm `agent-browser@0.27.0`，last-month 2,851,726 downloads |
-| `microsoft/playwright` | TypeScript | Apache-2.0 | 88,680 / 5,686 | 168 | `v1.60.0`, 2026-05-11 | 2026-05-14 | npm `playwright@1.60.0`，last-month 211,808,698 downloads |
-| `microsoft/playwright-mcp` | TypeScript | Apache-2.0 | 32,492 / 2,668 | 2 | `v0.0.75`, 2026-05-07 | 2026-05-12 | npm `@playwright/mcp@0.0.75`，last-month 9,818,490 downloads |
-| `microsoft/playwright-python` | Python | Apache-2.0 | 14,632 / 1,157 | 18 | `v1.59.0`, 2026-04-29 | 2026-05-12 | PyPI `playwright==1.59.0` |
+| `epiral/bb-browser` | TypeScript | MIT | 5,551 / 557 | 90 | GitHub release `bb-browser-v0.11.6`；git tag `v0.13.2`；npm `0.13.3` | 2026-05-28 | npm `bb-browser@0.13.3` |
+| `browser-use/browser-use` | Python | MIT | 95,949 / 10,778 | 243 | `0.12.9`, 2026-05-26 | 2026-05-26 | PyPI `browser-use==0.12.9`，Python `>=3.11,<4.0` |
+| `microsoft/playwright-cli` | TypeScript | Apache-2.0 | 10,799 / 562 | 10 | `v0.1.13`, 2026-05-07 | 2026-05-07 | npm `@playwright/cli@0.1.13` |
+| `ChromeDevTools/chrome-devtools-mcp` | TypeScript | Apache-2.0 | 42,074 / 2,687 | 82 | `chrome-devtools-mcp-v1.1.1`, 2026-05-27 | 2026-05-28 | npm `chrome-devtools-mcp@1.1.1` |
+| `vercel-labs/agent-browser` | Rust | Apache-2.0 | 34,516 / 2,174 | 491 | `v0.27.0`, 2026-05-07 | 2026-05-28 | npm `agent-browser@0.27.0` |
+| `microsoft/playwright` | TypeScript | Apache-2.0 | 89,686 / 5,802 | 161 | `v1.60.0`, 2026-05-11 | 2026-05-28 | npm `playwright@1.60.0` |
+| `microsoft/playwright-mcp` | TypeScript | Apache-2.0 | 33,132 / 2,720 | 9 | `v0.0.75`, 2026-05-07 | 2026-05-28 | npm `@playwright/mcp@0.0.75` |
+| `microsoft/playwright-python` | Python | Apache-2.0 | 14,683 / 1,168 | 24 | `v1.60.0`, 2026-05-18 | 2026-05-18 | PyPI `playwright==1.60.0` |
 
 额外观察：
 
@@ -112,7 +127,7 @@
 
 - 同一套 Chromium / Firefox / WebKit 自动化能力，给 Python 使用。
 - 同时支持 sync 和 async API。
-- PyPI 最新版本为 `1.59.0`，要求 Python `>=3.9`。
+- PyPI 最新版本为 `1.60.0`，要求 Python `>=3.9`。
 
 好品味：
 

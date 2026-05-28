@@ -1,6 +1,6 @@
 # Agent-Native CLI 与真实浏览器工具调研：CLI-Anything、OpenCLI、bb-browser
 
-调研日期：2026-05-21  
+调研日期：2026-05-21；更新核对：2026-05-28 16:53 CST
 调研对象：
 
 - https://github.com/HKUDS/CLI-Anything
@@ -12,7 +12,7 @@
 
 - 一手来源：GitHub 仓库 README、package.json、源码、release、workflow、registry 文件、隐私/安全说明。
 - 包元数据：npm registry、PyPI。
-- 仓库状态：通过 GitHub CLI / GitHub API 抓取，数据时间为 2026-05-21。
+- 仓库状态：通过 GitHub CLI / GitHub API 抓取，原始数据时间为 2026-05-21；关键版本、manifest 计数和包状态更新核对于 2026-05-28 16:53 CST。
 - 本报告是静态源码与元数据调研，没有本地安装三项目、跑完整测试套件、验证真实站点 adapter 稳定性，也没有对敏感账号做自动化测试。没有验证就不装作验证过。
 
 ## 核心判断
@@ -54,16 +54,17 @@
 
 | 项目 | 本质 | License | 最新版本/发布 | Node/Python 包 | Stars / Forks | 最近 push | 备注 |
 |---|---|---|---|---|---:|---|---|
-| `HKUDS/CLI-Anything` | 泛软件 CLI harness 与 CLI-Hub | 仓库 Apache-2.0 | `v0.3.0`, 2026-04-24 | PyPI `cli-anything-hub 0.3.0` | 38,748 / 3,688 | 2026-05-20 | PyPI 元信息 license 为 MIT，和仓库不一致 |
-| `jackwener/OpenCLI` | 网站/Electron/local tool 的 CLI runtime | Apache-2.0 | `v1.8.0`, 2026-05-19 | npm `@jackwener/opencli 1.8.0` | 22,138 / 2,232 | 2026-05-20 | README 写 Node >=21，package engines 是 >=20 |
-| `epiral/bb-browser` | 真实 Chrome 的 CLI + MCP 控制面 | MIT | `bb-browser-v0.11.6`, 2026-05-11 | npm `bb-browser 0.11.6` | 5,374 / 530 | 2026-05-11 | Node >=18，CDP-direct |
-| `epiral/bb-sites` | `bb-browser` 社区 site adapters | 未识别 license | 无 release | 无包发布 | 555 / 116 | 2026-05-15 | 当前源码统计 143 个 JS adapter 文件 |
+| `HKUDS/CLI-Anything` | 泛软件 CLI harness 与 CLI-Hub | 仓库 Apache-2.0 | `v0.3.0`, 2026-04-24 | PyPI `cli-anything-hub 0.3.0` | 40,983 / 3,875 | 2026-05-23 | PyPI 元信息 license 为 MIT，和仓库不一致 |
+| `jackwener/OpenCLI` | 网站/Electron/local tool 的 CLI runtime | Apache-2.0 | `v1.8.0`, 2026-05-19 | npm `@jackwener/opencli 1.8.0` | 22,857 / 2,304 | 2026-05-27 | README 写 Node >=21，package engines 是 >=20 |
+| `epiral/bb-browser` | 真实 Chrome 的 CLI + MCP 控制面 | MIT | GitHub release 仍为 `bb-browser-v0.11.6`；git tag 到 `v0.13.2`；npm 到 `0.13.3` | npm `bb-browser 0.13.3` | 5,551 / 557 | 2026-05-28 | Node >=18，CDP-direct；release/tag/npm 三线漂移 |
+| `epiral/bb-sites` | `bb-browser` 社区 site adapters | 未识别 license | 无 release | 无包发布 | 565 / 118 | 2026-05-25 | 当前源码统计 145 个 JS adapter 文件 |
 
 补充数据：
 
 - `CLI-Anything` 的 `registry.json` 当前包含 64 个 harness，`public_registry.json` 包含 16 个 public CLI。
-- `OpenCLI` 的 `cli-manifest.json` 当前包含 873 条命令、153 个站点，其中 605 条标记为 browser-backed。
-- `bb-browser` README 宣称 36 个平台、103 条命令；当前 `bb-sites` 仓库源码统计到 143 个 `.js` adapter 文件。这里大概率是 README 计数滞后，不是功能本身问题，但文档和实现存在漂移。
+- `OpenCLI` 的 `cli-manifest.json` 当前包含 900 条命令、155 个站点，其中 631 条标记为 browser-backed。
+- `bb-browser` README 宣称 36 个平台、103 条命令；当前 `bb-sites` 仓库源码统计到 145 个 `.js` adapter 文件。这里大概率是 README 计数滞后，不是功能本身问题，但文档和实现存在漂移。
+- 2026-05-28 核对时，`bb-browser` 的 GitHub latest release、git tag 和 npm latest 不一致。安装时不要照 GitHub latest release 盲 pin `0.11.6`，应以 npm registry 的 stable latest 和项目 changelog / tag 对齐复核。
 
 ## 项目分层地图
 
@@ -263,9 +264,9 @@ CLI
 
 当前抽样数据：
 
-- 873 条命令。
-- 153 个站点。
-- 605 条 browser-backed command。
+- 900 条命令。
+- 155 个站点。
+- 631 条 browser-backed command。
 - 所有条目 type 为 `js`。
 
 典型 manifest entry 包含：

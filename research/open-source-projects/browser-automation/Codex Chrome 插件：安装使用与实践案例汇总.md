@@ -1,6 +1,6 @@
 # Codex Chrome 插件：安装使用与实践案例汇总
 
-日期：2026-05-11
+日期：2026-05-11；官方文档核对：2026-05-28 16:53 CST
 
 来源视频：
 
@@ -91,15 +91,15 @@ flowchart LR
 
 ## 安装和连接流程
 
-视频里的安装路径可以整理成这几步：
+2026-05-28 核对 OpenAI 官方 Codex 文档后，安装路径要按官方入口改，不要只照视频里的 Chrome Web Store 搜索路径：
 
-1. 打开 Chrome Web Store，搜索 `Codex`。
-2. 添加 Codex Chrome 扩展。
-3. 打开扩展图标，初始状态可能显示 `Disconnected`。
-4. 进入扩展设置或齿轮页，按视频演示开启允许连接的选项。
-5. 打开 Codex App，在浏览器或 Chrome 插件入口里选择安装/连接 Chrome。
-6. 返回 Chrome 扩展检查状态，看到 `Connected` 后才算连接完成。
-7. 在 Codex 里调用 Chrome 工具，可以直接描述“用 Chrome 做什么”，也可以通过视频里提到的 Chrome 插件入口或 `/Chrome` 类似方式选择工具。
+1. 打开 Codex App，进入 `Plugins`。
+2. 选择 `Chrome`，跟随 setup flow 安装 `Codex Chrome` 扩展，并批准 Chrome 弹出的扩展权限。
+3. 打开 Chrome，确认 Codex 扩展状态为 `Connected`。
+4. 新开 Codex thread。需要登录态网站时，Codex 可以建议使用 Chrome；也可以在任务里直接引用 `@Chrome`。
+5. Chrome 任务会在 Chrome tab group 里运行，方便把同一 thread 的页面工作归组。
+
+官方文档还把两类浏览器能力分得很清楚：Codex in-app browser 适合本地开发服务器、file-backed preview、无需登录的公开页面；需要登录态、Chrome profile、cookies、扩展或既有标签页时，才使用 Codex Chrome extension。这个边界很重要，别把所有网页任务都扔给真实 Chrome profile。
 
 安装失败先查这几类问题：
 
@@ -108,6 +108,8 @@ flowchart LR
 - Codex App 版本过旧，没有浏览器/Chrome 插件入口。
 - 扩展没有连接上 Codex，状态仍是 `Disconnected`。
 - 权限没有开，尤其涉及文件上传、下载、本地文件访问时，可能需要到扩展详情页打开对应权限。
+
+网站访问控制也按官方口径更新：Codex 默认会在操作新网站前请求确认；用户可以对当前 chat 允许、对 host 总是允许，或拒绝。allowlist / blocklist 可以后续管理。浏览器历史是单独的敏感权限，包含内部 URL、搜索词和跨设备 Chrome 活动线索，不能和普通网页内容混为一谈。
 
 ## 使用方式
 

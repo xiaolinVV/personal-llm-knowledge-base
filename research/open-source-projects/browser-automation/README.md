@@ -36,6 +36,27 @@ flowchart TD
 
 核心判断：不要把这些工具混成一个概念。Playwright/CDP 是控制协议和自动化底座；CloakBrowser 是 runtime identity；Crawl4AI 是 extraction pipeline；Manager 是 profile 控制台；Codex Chrome / bb-browser / OpenCLI 是让 Agent 使用真实浏览器上下文的工具面。
 
+## 官方状态核对
+
+更新时间：2026-05-28 16:53 CST。数据源为 GitHub REST API、npm registry、PyPI、Docker Hub 和 OpenAI 官方 Codex 文档；这是静态元数据核对，不代表本地跑通验证。
+
+| 项目 | 当前官方状态 | 需要注意的漂移 |
+|---|---|---|
+| Playwright | `microsoft/playwright` / npm `playwright@1.60.0` | 总览报告里的 Node 版 Playwright 版本仍有效 |
+| Playwright Python | `microsoft/playwright-python v1.60.0` / PyPI `playwright==1.60.0` | 旧总览里的 `v1.59.0` 已过时 |
+| Playwright CLI | `microsoft/playwright-cli v0.1.13` / npm `@playwright/cli@0.1.13` | 仍是早期 `0.1.x`，不要按成熟测试框架看 |
+| Playwright MCP | `microsoft/playwright-mcp v0.0.75` / npm `@playwright/mcp@0.0.75` | stable 未变，npm `next` alpha 不作为默认依据 |
+| Chrome DevTools MCP | `ChromeDevTools/chrome-devtools-mcp v1.1.1` / npm `chrome-devtools-mcp@1.1.1` | 旧总览里的 `0.26.0` 明显过时；主版本已变 |
+| agent-browser | `vercel-labs/agent-browser v0.27.0` / npm `agent-browser@0.27.0` | 版本未变，风险判断未变 |
+| browser-use | `browser-use/browser-use 0.12.9` / PyPI `browser-use==0.12.9` | 旧总览里的 `0.12.6` 已过时；当前 PyPI 要求 Python `>=3.11,<4.0` |
+| bb-browser | GitHub latest release 仍是 `bb-browser-v0.11.6`，git tag 到 `v0.13.2`，npm latest 到 `0.13.3` | release/tag/npm 三线漂移，安装时不要盲抄 GitHub latest release |
+| OpenCLI | `jackwener/OpenCLI v1.8.0` / npm `@jackwener/opencli@1.8.0` | 版本未变，但 `cli-manifest.json` 已到 900 条命令、155 个站点 |
+| CLI-Anything | `HKUDS/CLI-Anything v0.3.0` / PyPI `cli-anything-hub==0.3.0` | 版本未变，仓库 license 与 PyPI 元信息 license 漂移仍存在 |
+| Crawl4AI | PyPI `crawl4ai==0.8.6`，GitHub latest release 仍是 `v0.8.5` | PyPI 与 GitHub release 漂移仍存在，不能只看 release |
+| CloakBrowser | PyPI / npm `cloakbrowser==0.3.31`，Docker `cloakhq/cloakbrowser:0.3.31`，二进制 release `chromium-v146.0.7680.177.5` | `0.3.31` 是 wrapper / Docker 更新，不是新 Chromium binary |
+| CloakBrowser-Manager | git tag / Docker tag 仍是 `v0.0.10`，依赖 `cloakbrowser[geoip]>=0.3.31` | 早期 alpha 和默认安全边界判断未变 |
+| Codex Chrome extension | 官方入口在 Codex App `Plugins` -> `Chrome`；in-app browser 只适合无需登录的本地/公开页面 | 视频里的 Chrome Web Store 搜索路径不能当唯一安装依据 |
+
 ## 阅读顺序
 
 1. [浏览器自动化工具深度调研](./2026-05-14-browser-automation-tools-research.md)

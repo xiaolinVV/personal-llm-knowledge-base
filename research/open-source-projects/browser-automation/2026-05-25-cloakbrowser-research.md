@@ -1,7 +1,7 @@
 # CloakBrowser 开源项目调研
 
 调研日期：2026-05-25  
-数据时间：2026-05-25 12:09 CST  
+数据时间：2026-05-25 12:09 CST；更新核对：2026-05-28 16:53 CST
 调研对象：
 
 - https://github.com/CloakHQ/CloakBrowser
@@ -26,7 +26,7 @@
 
 它值得研究，但不要直接当作生产基础设施塞进高风险流程。原因很简单：
 
-- 热度是真的：2026-02-22 创建，2026-05-25 已约 20.4k stars、1.6k forks。
+- 热度是真的：2026-02-22 创建，2026-05-28 已约 21.9k stars、1.7k forks。
 - 工程方向也是真的：把 Playwright / Puppeteer 的 API 保持住，只替换浏览器二进制和启动参数，这个数据结构选得对。
 - 风险也是真的：核心二进制不可从仓库源码复现，二进制 license 限制再分发，自动下载和自动更新扩大供应链边界，项目定位天然贴近绕过 bot detection 的灰区。
 
@@ -41,15 +41,17 @@
 |---|---|
 | GitHub 仓库 | `CloakHQ/CloakBrowser` |
 | 创建时间 | 2026-02-22 |
-| 最近 push | 2026-05-24 |
-| Stars / Forks | 20,471 / 1,618 |
-| Open issues | 87 |
+| 最近 push | 2026-05-26 |
+| Stars / Forks | 21,900 / 1,748 |
+| Open issues | 94 |
 | License | wrapper 源码 MIT；Chromium 二进制单独 `BINARY-LICENSE.md` |
 | 主语言 | Python、TypeScript |
-| 最新 wrapper | PyPI / npm 均为 `0.3.30` |
+| 最新 wrapper | PyPI / npm 均为 `0.3.31` |
 | 最新二进制 release | `chromium-v146.0.7680.177.5`，2026-05-21 |
 | 支持平台 | Linux x64/arm64、macOS arm64/x64、Windows x64，但版本不完全一致 |
 | 贡献者分布 | `Cloak-HQ` 贡献 142 次，第二贡献者 12 次，bus factor 偏集中 |
+
+更新判断：`0.3.31` 是 wrapper / Docker 层更新，不是新的 Chromium binary release。官方 changelog 显示它修复 HTTP proxy credentials 传递、humanize iframe 坐标、timeout 预算、Xvfb lock 清理等问题；二进制 release 仍停在 `chromium-v146.0.7680.177.5`。所以二进制不可复现、license、供应链边界这些核心风险没有变。
 
 语言体量：
 
@@ -481,4 +483,3 @@ labs/browser-runtime-comparison/
 - 试：可以，必须在授权环境。
 - 上生产：先审计、pin 版本、关自动更新、内部分发、确认 license。
 - 当“开源绕过神器”：这是错误理解。
-

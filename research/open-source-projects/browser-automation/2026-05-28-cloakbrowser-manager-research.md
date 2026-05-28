@@ -1,7 +1,7 @@
 # CloakBrowser-Manager 开源项目调研
 
 调研日期：2026-05-28
-数据时间：2026-05-28 15:16 CST
+数据时间：2026-05-28 15:16 CST；更新核对：2026-05-28 16:53 CST
 调研对象：
 
 - https://github.com/CloakHQ/CloakBrowser-Manager
@@ -54,7 +54,7 @@
 | GitHub 仓库 | `CloakHQ/CloakBrowser-Manager` |
 | 创建时间 | 2026-03-11 04:24:38 UTC |
 | 最近 push | 2026-05-26 18:34:38 UTC |
-| Stars / Forks | 546 / 114 |
+| Stars / Forks | 547 / 114 |
 | Open issues | 25 |
 | GitHub release | 无 release，使用 git tag 和 Docker Hub tag |
 | 最新 tag | `v0.0.10` |
@@ -82,6 +82,8 @@
 | JavaScript | 81 |
 
 这个体量说明它是一个薄控制台，不是复杂平台。
+
+更新核对：`v0.0.10`、Docker Hub `latest` / `v0.0.10`、`cloakbrowser[geoip]>=0.3.31` 这些关键版本仍然是当前值。相比 15:16 的原始快照，只有 star 数从 546 到 547 的自然变化，不影响报告判断。
 
 ## 它到底解决什么问题
 

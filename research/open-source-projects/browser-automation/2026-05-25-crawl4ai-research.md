@@ -1,7 +1,7 @@
 # Crawl4AI 开源项目调研
 
 调研日期：2026-05-25  
-数据时间：2026-05-25 12:09-12:30 CST  
+数据时间：2026-05-25 12:09-12:30 CST；更新核对：2026-05-28 16:53 CST
 调研对象：
 
 - https://github.com/unclecode/crawl4ai
@@ -26,7 +26,7 @@
 
 > Crawl4AI 是面向 LLM/RAG/Agent 数据管道的 Web extraction framework，不只是 crawler。
 
-它确实很火：2024-05-09 创建，到 2026-05-25 已约 66.2k stars、6.7k forks。热度不是假的。但它也不是一个“小而美”的库，已经变成一个大而全的采集平台雏形：Python library、CLI、Docker API、MCP bridge、browser profiles、deep crawling、LLM extraction、Markdown generation、anti-bot fallback、cloud beta 都在里面。
+它确实很火：2024-05-09 创建，到 2026-05-28 已约 66.6k stars、6.8k forks。热度不是假的。但它也不是一个“小而美”的库，已经变成一个大而全的采集平台雏形：Python library、CLI、Docker API、MCP bridge、browser profiles、deep crawling、LLM extraction、Markdown generation、anti-bot fallback、cloud beta 都在里面。
 
 【核心判断】
 
@@ -40,9 +40,9 @@
 |---|---|
 | GitHub 仓库 | `unclecode/crawl4ai` |
 | 创建时间 | 2024-05-09 |
-| 最近 push | 2026-05-22 |
-| Stars / Forks | 66,202 / 6,764 |
-| Watchers | 368 |
+| 最近 push | 2026-05-25 |
+| Stars / Forks | 66,657 / 6,838 |
+| Watchers | 371 |
 | License | Apache-2.0 |
 | 主语言 | Python |
 | 最新 PyPI 版本 | `0.8.6`，上传于 2026-03-24 |
@@ -68,6 +68,8 @@
 - README 写 `v0.8.6` 是安全热修：因为 PyPI supply chain compromise，将 `litellm` 替换为 `unclecode-litellm==1.81.13`。
 
 这说明研究或生产 pin 版本时，不能只看 GitHub release。
+
+2026-05-28 更新核对：这个漂移仍然存在。PyPI 最新仍是 `0.8.6`，GitHub latest release 仍是 `v0.8.5`，`main` 的 `crawl4ai/__version__.py` 仍为 `0.8.6`。所以版本判断没过时，只是热度和最近 push 数据有自然变化。
 
 ## 它解决什么问题
 
@@ -588,4 +590,3 @@ labs/crawl4ai-web-to-rag/
 - 直接生产依赖：谨慎。
 - Docker API 暴露：高风险，必须加安全网。
 - 与 CloakBrowser 组合：可以研究，最好通过 CDP 边界组合，而不是硬耦合。
-
