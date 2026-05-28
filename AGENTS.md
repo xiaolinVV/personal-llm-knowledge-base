@@ -33,13 +33,14 @@
 - `notes/openai/`: OpenAI 主线学习笔记和实验复盘。
 - `notes/agent-systems/`: Agent 架构、Agent Skill、Context Engineering、生产工程经验。
 - `notes/llm-basics/`: token、采样参数等 LLM 基础概念。
-- `notes/mcp-cli-browser/`: MCP、CLI 工具、浏览器自动化和 Codex Chrome 相关笔记。
+- `notes/mcp-cli-browser/`: MCP、CLI 工具基础和选型笔记。
 - `notes/rag/`: RAG 基础机制、最小实现和 Agentic RAG 笔记。
 - `notes/ragflow/`: RAGFlow 专项视频、官方资料、部署、评测和 Dify 集成笔记。
 - `notes/watchlists/`: 临时学习清单和候选资料筛选。
 - `research/`: 研究报告入口索引。
 - `research/use-cases/`: 实际应用场景调研。
 - `research/open-source-projects/`: 开源项目拆解。
+- `research/open-source-projects/browser-automation/`: 浏览器自动化、CDP、真实浏览器 runtime、CloakBrowser、Crawl4AI、Codex Chrome 相关研究入口。
 - `.codex/skills/`: 项目内可复用 Skill。处理学习视频沉淀时优先使用 `video-study-notes`。
 
 ## 每次新增实验

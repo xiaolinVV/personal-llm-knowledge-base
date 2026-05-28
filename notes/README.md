@@ -9,10 +9,12 @@
 - [openai/](openai/)：OpenAI 主线学习笔记和实验复盘。
 - [agent-systems/](agent-systems/)：Agent 架构、Agent Skill、Context Engineering、生产工程经验。
 - [llm-basics/](llm-basics/)：token、采样参数等 LLM 基础概念。
-- [mcp-cli-browser/](mcp-cli-browser/)：MCP、CLI 工具、浏览器自动化和 Codex Chrome。
+- [mcp-cli-browser/](mcp-cli-browser/)：MCP、CLI 工具基础和选型笔记。
 - [rag/](rag/)：RAG 基础机制、最小实现和 Agentic RAG。
 - [ragflow/](ragflow/)：RAGFlow 专项视频、官方资料、部署、评测和 Dify 集成。
 - [watchlists/](watchlists/)：学习清单、候选资料和后续筛选入口。
+
+浏览器自动化、CDP、真实浏览器 runtime、CloakBrowser、Crawl4AI 和 Codex Chrome 相关研究已沉淀到 [research/open-source-projects/browser-automation/](../research/open-source-projects/browser-automation/)。
 
 ## 归档规则
 

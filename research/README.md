@@ -11,8 +11,7 @@
 
 - [AI 应用层经济性与物理 AI](use-cases/AI%20应用层出清、成本结构、商业模式与%20Physical%20AI%20研究报告.md)
 - [企业级 RAG 评测数据集](use-cases/2026-05-15-enterprise-rag-eval-datasets.md)
-- [浏览器自动化工具深度调研](open-source-projects/2026-05-14-browser-automation-tools-research.md)
-- [Agent-Native CLI 与真实浏览器工具调研](open-source-projects/2026-05-21-agent-native-cli-browser-runtime-research.md)
+- [浏览器自动化专题研究](open-source-projects/browser-automation/)
 - [RAGFlow 官方材料与实践案例](open-source-projects/ragflow/)
 
 ## 归档规则
