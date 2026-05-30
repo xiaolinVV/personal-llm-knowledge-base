@@ -115,7 +115,7 @@ uv run python labs/openai/03-tools-and-rag/research_assistant_cli.py \
 ```bash
 uv run python labs/openai/03-tools-and-rag/research_assistant_cli.py \
   --prepare-vector-store \
-  --file docs/03-openai-stack.md \
+  --file knowledge/ai/openai-stack.md \
   --file notes/openai/2026-05-08-openai-responses-api-lab01.md
 ```
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Knowledge Base Workflow"
+  short_description: "Route materials through the LLM knowledge base lifecycle"
+  default_prompt: "Use $knowledge-base-workflow to ingest this material into the personal LLM knowledge base."

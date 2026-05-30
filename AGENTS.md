@@ -1,47 +1,83 @@
 # AGENTS.md
 
-本仓库是 AI Agent Fieldbook：面向 AI Agent 领域的长期学习研究手册。未来协作时遵守这些规则。
+本仓库是个人 Karpathy 式 LLM 知识库。目标不是收藏资料，而是把资料编译成可读、可复查、可维护、可输出的长期知识。
 
 ## 默认语言
 
-对话和学习笔记默认使用中文。代码、命令、API 字段、提交信息可使用英文。
+对话、学习笔记、研究记录和仓库说明默认使用中文。代码、命令、API 字段、英文原始标题和提交信息可以使用英文。
 
-## 学习研究顺序
+## 核心原则
 
-主线研究不要跳阶段；临时发现的新资料可以先沉淀，但深入研究和实验验证应尽量回到主线：
+- 生命周期优先，主题其次。先判断文件处于 `inbox`、`sources`、`notes`、`knowledge`、`research`、`labs`、`methods`、`outputs`、`meta` 还是 `archive`，再判断主题。
+- 官方资料优先。涉及 API、SDK、模型、产品行为、标准和工具能力时，优先核对官方文档；博客、视频和二手教程只能作为补充。
+- 不要把来源当知识。URL、PDF、网页和视频只是证据入口；必须经过理解、压缩、质疑和重写后才算知识。
+- 不要把 LLM 总结当事实。关键结论必须保留来源，必要时回到原文、代码或实验核验。
+- 不要上来做复杂自动化。第一版坚持 Git + Markdown + 清晰目录 + 模板 + 维护规则。向量库、RAG、知识图谱和批量自动化必须先证明必要性。
+- 未验证就不要声称完成。未跑实验、未查官方文档、未复核来源时，明确写“未验证”。
+- 高风险动作必须有人审：发邮件、改数据库、调用支付、部署、改线上配置、执行不受控 shell、写出仓库外文件。
 
-1. OpenAI 官方技术栈
-2. Anthropic / Claude 技术栈
-3. 真实应用场景和开源项目拆解
-4. 自己实现小型 Agent 产品
+## 生命周期目录
 
-## 工程原则
+- `inbox/`: 临时入口，只放待处理线索和想法。不能长期堆积。
+- `sources/`: 轻量来源索引，保存 URL、书籍、论文、视频、PDF、网页快照说明、外部路径和采集日期。
+- `notes/`: 资料消化层。视频、文章、课程、概念、会议和聊天记录先变成自己的中文笔记。
+- `knowledge/`: 稳定知识层。只放跨来源、可维护、可复用的 evergreen 文档。
+- `research/`: 问题驱动研究。只放已经形成结构化判断的材料。
+- `labs/`: 验证层。只放能验证具体判断的最小实验，不做炫技项目。
+- `methods/`: 方法库。放模板、提示词、资料处理流程、复盘流程、维护规则和可复用工作法。
+- `outputs/`: 成品层。放 PPT、报告、文章、方案等最终输出；每个新输出目录需要 manifest。
+- `meta/`: 仓库治理层。放定位、主题地图、迁移记录、命名规则、质量标准和维护节奏。
+- `archive/`: 历史归档层。只放不再维护但仍值得保留的旧结构、旧计划或废弃材料索引。
+- `docs/`: 旧入口兼容目录，不再新增内容。
 
-- 官方文档优先，博客和二手教程只能作为补充。
-- 不要上来就做多 Agent。先把单 Agent、工具调用、状态、追踪和评估做好。
-- 每个实验必须能说明一个具体问题，不能为了“看起来高级”添加复杂性。
-- 资料不能只收藏。视频、文章、工具和案例要尽量消化成笔记、研究判断或实验验证。
-- 学习笔记、研究记录、复盘和说明文档要写得通俗易懂。复杂逻辑优先用步骤、例子或 Mermaid 图解释，不要堆术语。
-- 高风险动作必须有人审：发邮件、改数据库、调用支付、执行 shell、写文件。
-- 未验证就不要声称完成。只说已经做了什么、还没验证什么。
+## 主题边界
 
-## 文件约定
+本仓库允许覆盖所有个人知识，不限于 AI。首批一级主题见 `meta/topic-map.md`：
 
-- `docs/`: 路线、原则、官方资源、主题索引和主线专题。
-- `labs/`: 可运行实验，只放需要验证关键判断的最小实验。
-- `notes/`: 视频、文章、课程、概念、工具的学习笔记和资料消化；按主题子目录归档。
-- `notes/openai/`: OpenAI 主线学习笔记和实验复盘。
-- `notes/agent-systems/`: Agent 架构、Agent Skill、Context Engineering、生产工程经验。
-- `notes/llm-basics/`: token、采样参数等 LLM 基础概念。
-- `notes/mcp-cli-browser/`: MCP、CLI 工具基础和选型笔记。
-- `notes/rag/`: RAG 基础机制、最小实现和 Agentic RAG 笔记。
-- `notes/ragflow/`: RAGFlow 专项视频、官方资料、部署、评测和 Dify 集成笔记。
-- `notes/watchlists/`: 临时学习清单和候选资料筛选。
-- `research/`: 研究报告入口索引。
-- `research/use-cases/`: 实际应用场景调研。
-- `research/open-source-projects/`: 开源项目拆解。
-- `research/open-source-projects/browser-automation/`: 浏览器自动化、CDP、真实浏览器 runtime、CloakBrowser、Crawl4AI、Codex Chrome 相关研究入口。
-- `.codex/skills/`: 项目内可复用 Skill。处理学习视频沉淀时优先使用 `video-study-notes`。
+- `ai`
+- `software-engineering`
+- `product-business`
+- `learning-research`
+- `life`
+- `reading`
+- `finance`
+- `health`
+- `misc`
+
+AI Agent 是 `ai` 领域下的核心主题，不再是仓库唯一边界。
+
+## 新文件要求
+
+新 Markdown 文件默认使用 `methods/templates/` 下的模板，并至少包含这些元数据：
+
+```yaml
+---
+type:
+domain:
+status:
+created:
+updated:
+source_refs:
+---
+```
+
+旧文件不强制一次性补齐元数据。只有在复查、迁移、升级或重写时补，避免低价值 churn。
+
+## 轻量来源策略
+
+Git 主要保存 Markdown、来源卡片、少量关键附件、最终可复查成品和最小实验。
+
+大视频、批量截图、完整网页资产、ASR 中间产物和临时渲染文件默认放 `local-media/` 或外部路径。`local-media/` 已在 `.gitignore` 中忽略。
+
+## AI 专项原则
+
+AI 相关研究继续遵守这些底线：
+
+- 先学官方原语，再学框架包装。
+- 先做单 Agent，再做多 Agent。
+- 先把工具调用、状态、追踪和评估弄清楚，再谈复杂 orchestration。
+- 每个实验必须能说明一个具体问题。
+- 不把官方文档、框架 demo、真实生产架构混为一谈。
 
 ## 每次新增实验
 
@@ -51,3 +87,10 @@
 - 最小可运行代码。
 - 明确的验证命令。
 - 学习笔记或复盘链接。
+
+## Skill 约定
+
+`.codex/skills/` 保留为可执行 Skill 配置。
+
+- 处理任意资料入库、分类、消化、升级、研究、输出回写时，优先使用项目内 `knowledge-base-workflow`。
+- 处理学习视频沉淀时，同时使用项目内 `video-study-notes`，并按生命周期判断产物落点：原始资产进 `local-media/`，资料消化进 `notes/`，稳定主题才升级到 `knowledge/`。

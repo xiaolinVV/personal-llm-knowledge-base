@@ -1,4 +1,6 @@
-# 官方资料清单
+# AI 官方资料清单
+
+这是 AI 主题的来源索引，不是稳定知识文件。跨来源整理后的结论应进入 `../../knowledge/ai/` 或 `../../research/`。
 
 资料优先级：
 
@@ -72,4 +74,3 @@
 - Browser-use / browser automation agents
 - OpenHands / coding agents
 - SWE-agent 类代码修复项目
-

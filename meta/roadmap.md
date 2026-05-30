@@ -1,4 +1,6 @@
-# 学习路线
+# AI 学习路线
+
+这是 `ai` 主题的历史主线路线，不代表整个仓库的边界。仓库现在按生命周期组织，AI Agent 是核心主题之一，不是唯一主题。
 
 这是一条循序渐进路线。默认节奏是 10 到 12 周，可以按实际时间压缩或拉长。
 
@@ -180,7 +182,7 @@
 
 交付物：
 
-- `docs/anthropic-vs-openai-agent-stack.md`
+- `knowledge/ai/anthropic-vs-openai-agent-stack.md`
 - 一个 Claude 版本的最小客服 Agent。
 - 一个 MCP server 小实验。
 
@@ -210,4 +212,3 @@
 - `research/use-cases/*.md`
 - `research/open-source-projects/*.md`
 - 一个复刻项目
-

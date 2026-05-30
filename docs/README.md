@@ -1,17 +1,27 @@
 # Docs
 
-主线文档目录，放学习路线、官方资料入口、阶段规划和已经形成稳定判断的专题文档。
+`docs/` 是旧入口兼容目录，不再新增内容。
 
-## 入口
+原来的稳定文档已经迁移到生命周期目录。保留这个 README 是为了让旧链接不至于变成死路。
 
-- [学习原则](00-learning-principles.md)
-- [学习路线](01-roadmap.md)
-- [官方资料清单](02-official-resources.md)
-- [OpenAI Agent 技术栈](03-openai-stack.md)
-- [Anthropic / Claude Agent 技术栈](04-anthropic-stack.md)
-- [真实场景和开源项目调研计划](05-field-research-plan.md)
-- [Agentic RAG 从基础到企业级实践](06-agentic-rag-from-basics-to-enterprise-practice.md)
+## 迁移入口
 
-## 归档标准
+- [学习原则](../meta/principles.md)
+- [学习路线](../meta/roadmap.md)
+- [官方资料清单](../sources/ai/official-resources.md)
+- [OpenAI Agent 技术栈](../knowledge/ai/openai-stack.md)
+- [Anthropic / Claude Agent 技术栈](../knowledge/ai/anthropic-stack.md)
+- [真实场景和开源项目调研计划](../meta/ai-field-research-plan.md)
+- [Agentic RAG 从基础到企业级实践](../knowledge/ai/rag/agentic-rag-from-basics-to-enterprise-practice.md)
 
-`docs/` 只放稳定入口和主线总结。临时资料、视频消化和单篇文章笔记先放 `notes/`；场景调研和开源项目拆解放 `research/`；能运行、能验证具体判断的内容再放 `labs/`。
+## 新增内容放哪里
+
+- 待处理线索放 `../inbox/`。
+- 来源索引放 `../sources/`。
+- 资料消化放 `../notes/`。
+- 稳定知识放 `../knowledge/`。
+- 深度研究放 `../research/`。
+- 实验验证放 `../labs/`。
+- 方法模板放 `../methods/`。
+- 输出成品放 `../outputs/`。
+- 仓库治理放 `../meta/`。

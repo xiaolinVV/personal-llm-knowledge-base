@@ -57,7 +57,7 @@
 - 当前归档：`notes/`
 - 是否值得升级为 lab：是，但本次不直接升级。
 - 判断理由：视频不仅讲概念，还给了可复现的 Skill 目录、`SKILL.md`、Reference 文件和 Script 文件的组合方式，适合后续做一个最小 Skill 实验，验证渐进式披露、资源加载和脚本执行边界。当前任务只是沉淀视频笔记，先不引入额外实验。
-- 后续应进入：`labs/` 可以做一个 `agent-skills-minimal` 实验；`docs/` 可以补一篇 Agent Skill 与 MCP 的选型原则。
+- 后续应进入：`labs/` 可以做一个 `agent-skills-minimal` 实验；如果形成跨来源稳定判断，再补到 `knowledge/ai/`。
 
 ## 一句话结论
 

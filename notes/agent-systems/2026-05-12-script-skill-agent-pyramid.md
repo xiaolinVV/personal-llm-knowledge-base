@@ -104,7 +104,7 @@ flowchart TD
 
 > 先做工具和 Skill，再做 Agent；先让 Agent 生产可复用能力，再让可复用能力减少 Agent 调用。
 
-对 `ai-agent-fieldbook` 后续实验的约束是：
+对 `personal-llm-knowledge-base` 后续实验的约束是：
 
 1. 每个 lab 必须说明自己验证的是脚本、Skill 还是 Agent。
 2. 能用脚本验证的，不升级成 Agent 实验。
