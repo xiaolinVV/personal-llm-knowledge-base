@@ -16,36 +16,36 @@
 标准流转路径：
 
 ```text
-inbox/
-  -> sources/
-    -> notes/
-      -> knowledge/ 或 research/
-        -> labs/
-          -> outputs/
-            -> knowledge/ 和 methods/
+00-收件箱/
+  -> 10-来源索引/
+    -> 20-资料笔记/
+      -> 30-稳定知识/ 或 40-问题研究/
+        -> 50-实验验证/
+          -> 70-输出成品/
+            -> 30-稳定知识/ 和 60-方法库/
 ```
 
 每一层只做一件事：
 
-- `inbox/`：临时入口。只放尚未处理的资料卡片、想法和待归档线索，不能长期堆积。
-- `sources/`：轻量来源索引。保存 URL、书籍、论文、视频、PDF、网页快照说明、外部路径和采集日期。大媒体和中间资产默认不进 Git。
-- `notes/`：资料消化层。视频、文章、书、课程、会议和聊天记录先变成自己的中文笔记。
-- `knowledge/`：稳定知识层。只放跨来源整理后的 evergreen 文档，要求可维护、可复用、可被未来输出调用。
-- `research/`：问题驱动研究。只有超出单篇资料消化、形成结构化判断的内容才进入这里。
-- `labs/`：验证层。只验证具体工程判断、API、SDK、工具链或失败模式，不为了看起来高级而写实验。
-- `methods/`：方法库。放模板、提示词、资料处理流程、复盘流程、维护规则和可复用工作法。
-- `outputs/`：成品层。放最终 PPT、报告、文章、方案等；每个新输出目录需要有 manifest 说明来源、目标和生成过程。
-- `meta/`：仓库治理层。放定位、主题地图、迁移记录、命名规则、质量标准和维护节奏。
-- `archive/`：历史归档层。只放不再维护但仍值得保留的旧结构、旧计划或废弃材料索引。
+- `00-收件箱/`：临时入口。只放尚未处理的资料卡片、想法和待归档线索，不能长期堆积。
+- `10-来源索引/`：轻量来源索引。保存 URL、书籍、论文、视频、PDF、网页快照说明、外部路径和采集日期。大媒体和中间资产默认不进 Git。
+- `20-资料笔记/`：资料消化层。视频、文章、书、课程、会议和聊天记录先变成自己的中文笔记。
+- `30-稳定知识/`：稳定知识层。只放跨来源整理后的 evergreen 文档，要求可维护、可复用、可被未来输出调用。
+- `40-问题研究/`：问题驱动研究。只有超出单篇资料消化、形成结构化判断的内容才进入这里。
+- `50-实验验证/`：验证层。只验证具体工程判断、API、SDK、工具链或失败模式，不为了看起来高级而写实验。
+- `60-方法库/`：方法库。放模板、提示词、资料处理流程、复盘流程、维护规则和可复用工作法。
+- `70-输出成品/`：成品层。放最终 PPT、报告、文章、方案等；每个新输出目录需要有 manifest 说明来源、目标和生成过程。
+- `80-仓库治理/`：仓库治理层。放定位、主题地图、迁移记录、命名规则、质量标准和维护节奏。
+- `90-历史归档/`：历史归档层。只放不再维护但仍值得保留的旧结构、旧计划或废弃材料索引。
 
 ## 顶层结构
 
 ```text
 .
-├── inbox/
-├── sources/
+├── 00-收件箱/
+├── 10-来源索引/
 │   └── ai/
-├── notes/
+├── 20-资料笔记/
 │   ├── agent-systems/
 │   ├── llm-basics/
 │   ├── mcp-cli-browser/
@@ -53,40 +53,40 @@ inbox/
 │   ├── rag/
 │   ├── ragflow/
 │   └── watchlists/
-├── knowledge/
+├── 30-稳定知识/
 │   ├── ai/
 │   └── meta/
-├── research/
+├── 40-问题研究/
 │   ├── open-source-projects/
 │   └── use-cases/
-├── labs/
+├── 50-实验验证/
 │   ├── anthropic/
 │   └── openai/
-├── methods/
+├── 60-方法库/
 │   └── templates/
-├── outputs/
-├── meta/
-├── archive/
+├── 70-输出成品/
+├── 80-仓库治理/
+├── 90-历史归档/
 └── docs/
 ```
 
-`docs/` 是旧入口兼容目录，不再新增内容。稳定文档已经迁移到 `meta/`、`sources/` 和 `knowledge/`。
+`docs/` 是旧入口兼容目录，不再新增内容。稳定文档已经迁移到 `80-仓库治理/`、`10-来源索引/` 和 `30-稳定知识/`。
 
 ## 快速入口
 
-- [仓库原则](meta/principles.md)
-- [主题地图](meta/topic-map.md)
-- [迁移记录](meta/migration-log.md)
-- [Karpathy 式 LLM 知识库原则](knowledge/meta/karpathy-llm-knowledge-base-principles.md)
-- [AI 官方资料索引](sources/ai/official-resources.md)
-- [OpenAI Agent 技术栈](knowledge/ai/openai-stack.md)
-- [Anthropic / Claude Agent 技术栈](knowledge/ai/anthropic-stack.md)
-- [Agentic RAG 专题](knowledge/ai/rag/agentic-rag-from-basics-to-enterprise-practice.md)
-- [资料笔记](notes/README.md)
-- [研究报告](research/README.md)
-- [实验验证](labs/README.md)
-- [方法模板](methods/README.md)
-- [输出成品](outputs/README.md)
+- [仓库原则](80-仓库治理/principles.md)
+- [主题地图](80-仓库治理/topic-map.md)
+- [迁移记录](80-仓库治理/migration-log.md)
+- [Karpathy 式 LLM 知识库原则](30-稳定知识/meta/karpathy-llm-knowledge-base-principles.md)
+- [AI 官方资料索引](10-来源索引/ai/official-resources.md)
+- [OpenAI Agent 技术栈](30-稳定知识/ai/openai-stack.md)
+- [Anthropic / Claude Agent 技术栈](30-稳定知识/ai/anthropic-stack.md)
+- [Agentic RAG 专题](30-稳定知识/ai/rag/agentic-rag-from-basics-to-enterprise-practice.md)
+- [资料笔记](20-资料笔记/README.md)
+- [研究报告](40-问题研究/README.md)
+- [实验验证](50-实验验证/README.md)
+- [方法模板](60-方法库/README.md)
+- [输出成品](70-输出成品/README.md)
 
 ## Codex Skills
 
@@ -99,15 +99,15 @@ inbox/
 
 | 问题 | 应放位置 |
 | --- | --- |
-| 只是一个待处理线索？ | `inbox/` |
-| 只是来源和证据入口？ | `sources/` |
-| 已经读过并转成自己的理解？ | `notes/` |
-| 跨来源、稳定、可复用？ | `knowledge/` |
-| 围绕一个问题形成判断？ | `research/` |
-| 需要跑代码验证判断？ | `labs/` |
-| 已经产出报告、PPT、文章或方案？ | `outputs/` |
-| 是可重复使用的方法？ | `methods/` |
-| 是仓库规则、主题地图或迁移记录？ | `meta/` |
+| 只是一个待处理线索？ | `00-收件箱/` |
+| 只是来源和证据入口？ | `10-来源索引/` |
+| 已经读过并转成自己的理解？ | `20-资料笔记/` |
+| 跨来源、稳定、可复用？ | `30-稳定知识/` |
+| 围绕一个问题形成判断？ | `40-问题研究/` |
+| 需要跑代码验证判断？ | `50-实验验证/` |
+| 已经产出报告、PPT、文章或方案？ | `70-输出成品/` |
+| 是可重复使用的方法？ | `60-方法库/` |
+| 是仓库规则、主题地图或迁移记录？ | `80-仓库治理/` |
 
 如果一个文件看起来能放两个地方，优先按生命周期判断。主题只负责索引，不负责替代生命周期。
 
@@ -143,4 +143,4 @@ Git 默认不保存：
 - 哪些结论已经验证；
 - 哪些事项仍未验证。
 
-新 Markdown 文件使用 `methods/templates/` 下的模板。旧文件不强制一次性补元数据，避免为了“整理”制造垃圾改动；在复查、迁移或升级时再补。
+新 Markdown 文件使用 `60-方法库/templates/` 下的模板。旧文件不强制一次性补元数据，避免为了“整理”制造垃圾改动；在复查、迁移或升级时再补。

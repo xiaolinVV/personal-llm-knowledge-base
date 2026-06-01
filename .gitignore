@@ -9,29 +9,30 @@ node_modules/
 dist/
 build/
 .DS_Store
+.obsidian/
 *.log
 local-media/
 
-# Presentation generation intermediates. Keep final deliverables under output/
+# Presentation generation intermediates. Keep final deliverables under 70-输出成品/
 # trackable, but ignore scratch plans, slide modules, renders, layouts, assets,
 # and build manifests produced by the Presentations workflow.
-outputs/**/presentations/**/slides/
-outputs/**/presentations/**/preview/
-outputs/**/presentations/**/layout/
-outputs/**/presentations/**/assets/
-outputs/**/presentations/**/qa/
-outputs/**/presentations/**/node_modules/
-outputs/**/presentations/**/package.json
-outputs/**/presentations/**/build_*.mjs
-outputs/**/presentations/**/claim-spine.txt
-outputs/**/presentations/**/contact-sheet-plan.txt
-outputs/**/presentations/**/design-system.txt
-outputs/**/presentations/**/profile-plan.txt
-outputs/**/presentations/**/source-notes.txt
-outputs/**/presentations/**/reference-audit.txt
-outputs/**/presentations/**/data.json
-outputs/**/presentations/**/output/artifact-build-manifest.json
-outputs/**/presentations/**/output/slide-*.png
+70-输出成品/**/presentations/**/slides/
+70-输出成品/**/presentations/**/preview/
+70-输出成品/**/presentations/**/layout/
+70-输出成品/**/presentations/**/assets/
+70-输出成品/**/presentations/**/qa/
+70-输出成品/**/presentations/**/node_modules/
+70-输出成品/**/presentations/**/package.json
+70-输出成品/**/presentations/**/build_*.mjs
+70-输出成品/**/presentations/**/claim-spine.txt
+70-输出成品/**/presentations/**/contact-sheet-plan.txt
+70-输出成品/**/presentations/**/design-system.txt
+70-输出成品/**/presentations/**/profile-plan.txt
+70-输出成品/**/presentations/**/source-notes.txt
+70-输出成品/**/presentations/**/reference-audit.txt
+70-输出成品/**/presentations/**/data.json
+70-输出成品/**/presentations/**/output/artifact-build-manifest.json
+70-输出成品/**/presentations/**/output/slide-*.png
 
 # Superseded full-page PNG roadmap draft. The editable deck is the deliverable.
-outputs/**/presentations/ai-agent-fieldbook-roadmap/
+70-输出成品/**/presentations/ai-agent-fieldbook-roadmap/
