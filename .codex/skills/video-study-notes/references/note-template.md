@@ -41,10 +41,10 @@ Use this structure for generated video notes. Adapt headings to the video, but k
 ## Fieldbook 归档判断
 
 - 内容类型：<资料消化 / 技术研究 / 工具观察 / 案例拆解 / 实验验证>
-- 当前归档：`20-资料笔记/`
+- 当前归档：`notes/`
 - 是否值得升级为 lab：<是 / 否>
 - 判断理由：<如果值得升级，说明要验证哪个 API、SDK、工具链、失败模式或工程判断；如果不值得，说明为什么停留在笔记或研究记录即可。>
-- 后续应进入：<`40-问题研究/` / `50-实验验证/` / 暂不升级>
+- 后续应进入：<`research/` / `labs/` / 暂不升级>
 
 ## 一句话结论
 

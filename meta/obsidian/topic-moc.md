@@ -1,0 +1,39 @@
+---
+type: meta
+domain: meta
+status: active
+created: 2026-06-01
+updated: 2026-06-01
+source_refs:
+  - ../topic-map.md
+---
+
+# 主题 MOC
+
+主题只负责导航，不替代生命周期目录。
+
+## 一级主题
+
+| 主题 | 入口 |
+| --- | --- |
+| AI | [AI 官方资料](../../sources/ai/official-resources.md), [AI 稳定知识](../../knowledge/ai/README.md), [OpenAI 笔记](../../notes/openai/), [RAGFlow 笔记](../../notes/ragflow/) |
+| 软件工程 | [浏览器自动化研究](../../research/open-source-projects/browser-automation/README.md), [MCP / CLI 笔记](../../notes/mcp-cli-browser/) |
+| 产品与商业 | [AI 应用场景研究](../../research/use-cases/README.md) |
+| 学习与研究 | [方法库](../../methods/README.md), [仓库原则](../principles.md), [Karpathy 式原则](../../knowledge/meta/karpathy-llm-knowledge-base-principles.md) |
+| 生活 / 阅读 / 财务 / 健康 | 暂无长期主题目录，先进入 [inbox](../../inbox/README.md) 或按生命周期归档。 |
+
+## AI 子主题
+
+- [OpenAI Agent 技术栈](../../knowledge/ai/openai-stack.md)
+- [Anthropic / Claude Agent 技术栈](../../knowledge/ai/anthropic-stack.md)
+- [Agent Systems 笔记](../../notes/agent-systems/)
+- [RAG 笔记](../../notes/rag/)
+- [RAGFlow 专题笔记](../../notes/ragflow/README.md)
+- [Agentic RAG 稳定专题](../../knowledge/ai/rag/agentic-rag-from-basics-to-enterprise-practice.md)
+- [开源项目研究](../../research/open-source-projects/README.md)
+
+## 维护规则
+
+- 一个主题至少有多份有效材料，或已经成为长期输出方向，才拆子目录。
+- 暂时无法归类的材料先进 `inbox/`，不要新建主题目录逃避判断。
+- 稳定主题要回写到 `knowledge/`；单篇资料总结留在 `notes/`。
