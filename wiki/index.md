@@ -26,6 +26,8 @@ source_refs: []
 | [来源索引](../raw/sources/README.md) | page |  | 0 | `raw/sources/` 是轻量来源索引层，保存原始采集文档、本地图片资产和原始材料入口，而不是保存知识本身。 |
 | [AI Sources](../raw/sources/ai/README.md) | page |  | 0 | AI 领域来源索引。 |
 | [AI 官方资料清单](../raw/sources/ai/official-resources.md) | page |  | 0 | 这是 AI 主题的来源索引，不是稳定知识文件。跨来源整理后的结论应进入 `../../../wiki/topics/ai/` 或 `../../../wiki/research/`。 |
+| [分享一个我用了2年的深度研究Prompt，半小时帮你搞懂任何陌生领域。](../raw/sources/ai/wechat_article/2026-04-13-hv-analysis-deep-research-prompt.md) | source | captured | 0 | 公众号来源卡：作者介绍“横纵分析法”Deep Research Prompt / Skill，用纵向历史和横向竞品切面帮助快速建立陌生领域研究框架。 |
+| [为了不花那120刀，我把电脑清理软件做成了开源skill。](../raw/sources/ai/wechat_article/2026-06-02-open-source-computer-cleanup-skill.md) | source | captured | 0 | 公众号来源卡：作者用 Codex / Agent skill 做电脑存储清理与交互式报告，并讨论工具型软件在 Agent 时代受到的冲击。 |
 | [Implementing Text2SQL with RAGFlow](../raw/sources/ai/ragflow/official-practice-cases/2024-09-24-implementing-text2sql-with-ragflow/article.md) | page |  | 0 | > |
 | [用 RAGFlow 实现 Text2SQL](../raw/sources/ai/ragflow/official-practice-cases/2024-09-24-implementing-text2sql-with-ragflow/article.zh.md) | page |  | 0 | > 原文：RAGFlow 官方博客《Implementing Text2SQL with RAGFlow》 |
 | [Agentic Workflow - What's inside RAGFlow 0.20.0](../raw/sources/ai/ragflow/official-practice-cases/2025-08-05-agentic-workflow-ragflow-v0.20.0/article.md) | page |  | 0 | > |

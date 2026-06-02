@@ -61,3 +61,31 @@ source_refs:
 未验证事项：
 
 - 本次只更新方法、模板和 skill 规则，没有实际生成公众号、网页、视频、GitHub 或 AI report 采集样例。
+
+## [2026-06-02] ingest | 为了不花那120刀，我把电脑清理软件做成了开源skill。
+
+- 来源：微信公众号文章，原始链接 `https://mp.weixin.qq.com/s/NyOMIlOD986OC4SI9vmxlA`。
+- 落点：`raw/sources/ai/wechat_article/2026-06-02-open-source-computer-cleanup-skill.md`。
+- 分类：`domain: ai`，`source_type: wechat_article`，`source_level: secondary`，`media_format: html`。
+- 采集状态：`partial`。已抽取标题、作者、公众号、发布时间、摘要、封面图 URL、正文图片数量和微信文章参数；未保存公众号全文和图片副本。
+- 索引：已加入 `wiki/index.md` 的 Raw Sources 表。
+
+未验证事项：
+
+- 未运行文章中的开源 skill。
+- 未核验 GitHub 仓库、CleanMyMac 价格、清理空间数据、截图内容或跨平台能力。
+- 本次为来源收集，不生成 `wiki/notes/`、`wiki/research/` 或稳定主题结论。
+
+## [2026-06-02] ingest | 分享一个我用了2年的深度研究Prompt，半小时帮你搞懂任何陌生领域。
+
+- 来源：微信公众号文章，原始链接 `https://mp.weixin.qq.com/s/Y_uRMYBmdLWUPnz_ac7jWA`。
+- 落点：`raw/sources/ai/wechat_article/2026-04-13-hv-analysis-deep-research-prompt.md`。
+- 分类：`domain: ai`，`source_type: wechat_article`，`source_level: secondary`，`media_format: html`。
+- 采集状态：`partial`。已抽取标题、作者、公众号、发布时间、摘要、封面图 URL、正文图片数量和微信文章参数；未保存公众号全文、长 Prompt 原文和图片副本。
+- 索引：已加入 `wiki/index.md` 的 Raw Sources 表。
+
+未验证事项：
+
+- 未运行文章中的 Prompt 或 `hv-analysis` Skill。
+- 未核验 GitHub 仓库、Skill 能力、arXiv 查询能力、PDF 输出能力或示例研究报告质量。
+- 本次为来源收集，不生成 `wiki/notes/`、`wiki/research/` 或稳定方法论结论。
