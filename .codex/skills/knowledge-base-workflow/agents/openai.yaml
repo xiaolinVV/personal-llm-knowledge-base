@@ -1,4 +1,4 @@
 interface:
   display_name: "Knowledge Base Workflow"
-  short_description: "Route materials through the LLM knowledge base lifecycle"
-  default_prompt: "Use $knowledge-base-workflow to ingest this material into the personal LLM knowledge base."
+  short_description: "Capture sources and route them through the LLM knowledge base lifecycle"
+  default_prompt: "Use $knowledge-base-workflow to capture this material as one raw Markdown source document, preserve traceability, and route it through the personal LLM knowledge base lifecycle."

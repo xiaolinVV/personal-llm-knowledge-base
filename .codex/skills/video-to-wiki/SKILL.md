@@ -1,6 +1,6 @@
 ---
 name: video-to-wiki
-description: Turn learning videos and yt-dlp-supported URLs into this repository's Karpathy-style LLM Wiki entries. Use when Codex needs to capture video media, subtitles, local ASR transcripts, metadata, keyframes, comments, companion links, code repositories, or course materials; register the video as a raw source; compile it into a standard wiki note; and update wiki index/log/watchlists without treating video assets as knowledge.
+description: Turn learning videos and yt-dlp-supported URLs into this repository's Karpathy-style LLM Wiki evidence and notes. Use when Codex needs to capture video media, subtitles, local ASR transcripts, metadata, keyframes, comments, companion links, code repositories, or course materials; register the video as one raw source document; optionally compile it into a standard wiki note when the user asks for digestion; and update wiki index/log/watchlists without treating video assets as knowledge.
 ---
 
 # Video To Wiki
@@ -46,24 +46,44 @@ For missing downloadable captions, use the local ASR fallback rules in `referenc
 
 ### 2. Source Registration
 
-Create or update one source card for each video:
+Create or update one source document for each video:
 
 ```text
-raw/sources/<domain>/youtube/<slug>.md
+raw/sources/<domain>/videos/<YYYY-MM-DD-title-slug>.md
 ```
 
 Use `schema/templates/source-card.md`. Fill it as follows:
 
-- 类型：视频
+- `source_type: video`
+- `source_level: secondary` unless the video is an official primary source
+- `media_format: video`
 - 作者 / 机构：channel or uploader
 - 原始链接：original video URL
-- 本地路径：`raw/assets/local-media/youtube/<slug>/asset-manifest.md`
+- 本地资产：`raw/assets/local-media/youtube/<slug>/asset-manifest.md`
+- 原始内容：captured evidence inventory, not the video's learned content
 - 关键线索：candidate code links, official docs, course pages, pinned comments, uploader replies, corrections, and implementation caveats
 - 处理状态：mark read, converted to note, entered research, extracted stable knowledge, or used in output as actually completed
 
+The document's `采集日志` records missing subtitles, ASR use, failed comments, failed keyframes, and other capture issues.
+
 Treat comments as source clues, not facts. Do not promote commenter claims unless verified against the video, code, official docs, or experiments.
 
-### 3. Knowledge Compilation
+### 3. Capture-Only Mode
+
+When `knowledge-base-workflow` routes a video for collection, or when the user only asks to collect/save/register the video, stop after evidence capture and source registration.
+
+A capture-only video ingest leaves:
+
+```text
+raw/assets/local-media/youtube/<slug>/asset-manifest.md
+raw/sources/<domain>/videos/<YYYY-MM-DD-title-slug>.md
+```
+
+Do not create `wiki/notes/` in capture-only mode. Mark the source as `captured` or `to_digest`.
+
+### 4. Knowledge Compilation
+
+Only compile the video into a wiki note when the user explicitly asks to digest, understand, summarize as a note, or write a video note.
 
 Write the compiled note under:
 
@@ -74,7 +94,7 @@ wiki/notes/<domain-or-topic>/<note-title>.md
 Use `references/note-template.md`. The note must be a standard `type: note` wiki node with frontmatter and `source_refs`. At minimum, `source_refs` includes:
 
 - original video URL
-- `raw/sources/<domain>/youtube/<slug>.md`
+- `raw/sources/<domain>/videos/<YYYY-MM-DD-title-slug>.md`
 - `raw/assets/local-media/youtube/<slug>/asset-manifest.md`
 
 Read only the generated files needed for the note:
@@ -87,14 +107,14 @@ Read only the generated files needed for the note:
 
 Do not paste long transcript blocks. Rebuild the content in your own Chinese explanation. Use Mermaid only when the video actually contains a process, architecture, interaction, state loop, or data flow worth preserving.
 
-### 4. Wiki Maintenance
+### 5. Wiki Maintenance
 
-A complete video ingest must leave these objects:
+A capture-only video ingest must leave one source document and the asset manifest. A complete video digest must additionally leave a compiled note:
 
 ```text
 raw/assets/local-media/youtube/<slug>/asset-manifest.md
-raw/sources/<domain>/youtube/<slug>.md
-wiki/notes/<domain-or-topic>/<note-title>.md
+raw/sources/<domain>/videos/<YYYY-MM-DD-title-slug>.md
+wiki/notes/<domain-or-topic>/<note-title>.md  # only for digest mode
 ```
 
 Then maintain the global wiki:
@@ -127,8 +147,8 @@ Use the standard `是否需要升级` checklist in the note. Do not invent video
 Report the lifecycle classification and the paths created or updated:
 
 - asset directory and manifest
-- source card
-- wiki note
+- source document
+- wiki note, only when digest mode was requested
 - `wiki/index.md` update
 - `wiki/log.md` append
 - watchlist backlink, if applicable

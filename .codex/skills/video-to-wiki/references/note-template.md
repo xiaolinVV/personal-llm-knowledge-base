@@ -11,7 +11,7 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 source_refs:
   - <original video URL>
-  - raw/sources/<domain>/youtube/<slug>.md
+  - raw/sources/<domain>/videos/<YYYY-MM-DD-title-slug>.md
   - raw/assets/local-media/youtube/<slug>/asset-manifest.md
 ---
 
@@ -54,7 +54,7 @@ flowchart LR
 ## 配套资源 / 代码地址
 
 - 视频：<original video URL>
-- 来源卡片：raw/sources/<domain>/youtube/<slug>.md
+- 来源文档：raw/sources/<domain>/videos/<YYYY-MM-DD-title-slug>.md
 - 本地资产：raw/assets/local-media/youtube/<slug>/asset-manifest.md
 - 代码仓库：<GitHub/Gitee/GitLab/Hugging Face/etc. URL；如果未找到，写“视频简介、元数据和评论中未发现具体代码仓库地址”。>
 - 其他资料：<官方文档、课程页、项目主页；没有就写“未发现”。>

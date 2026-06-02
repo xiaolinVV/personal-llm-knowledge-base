@@ -32,7 +32,7 @@ flowchart LR
 | 层级 | 入口 | 关键判断 |
 | --- | --- | --- |
 | 收件箱 | [raw/inbox](../../raw/inbox/README.md) | 还没处理，不要长期停留。 |
-| 来源索引 | [raw/sources](../../raw/sources/README.md) | 只保存证据入口，不冒充知识。 |
+| 来源索引 | [raw/sources](../../raw/sources/README.md) | 保存原始采集文档和本地图片资产，不冒充知识。 |
 | 资料笔记 | [wiki/notes](../../wiki/notes/README.md) | 用自己的中文理解重写来源。 |
 | 稳定主题 | [wiki/topics](../../wiki/topics/README.md) | 跨来源、可复用、可维护。 |
 | 问题研究 | [wiki/research](../../wiki/research/README.md) | 围绕问题，不围绕收藏。 |

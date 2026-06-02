@@ -23,7 +23,7 @@ source_refs: []
 
 | Page | Type | Status | Sources | Summary |
 | --- | --- | --- | ---: | --- |
-| [来源索引](../raw/sources/README.md) | page |  | 0 | `raw/sources/` 是轻量来源索引层，保存证据入口和原始材料，而不是保存知识本身。 |
+| [来源索引](../raw/sources/README.md) | page |  | 0 | `raw/sources/` 是轻量来源索引层，保存原始采集文档、本地图片资产和原始材料入口，而不是保存知识本身。 |
 | [AI Sources](../raw/sources/ai/README.md) | page |  | 0 | AI 领域来源索引。 |
 | [AI 官方资料清单](../raw/sources/ai/official-resources.md) | page |  | 0 | 这是 AI 主题的来源索引，不是稳定知识文件。跨来源整理后的结论应进入 `../../../wiki/topics/ai/` 或 `../../../wiki/research/`。 |
 | [Implementing Text2SQL with RAGFlow](../raw/sources/ai/ragflow/official-practice-cases/2024-09-24-implementing-text2sql-with-ragflow/article.md) | page |  | 0 | > |
@@ -151,3 +151,11 @@ source_refs: []
 | Page | Type | Status | Sources | Summary |
 | --- | --- | --- | ---: | --- |
 | [历史归档](archive/README.md) | page |  | 0 | `wiki/archive/` 是历史归档层。 |
+
+## Schema
+
+| Page | Type | Status | Sources | Summary |
+| --- | --- | --- | ---: | --- |
+| [Agent Protocol](../schema/agent-protocol.md) | method | active | 2 | Karpathy 式 LLM Wiki 的操作规约，定义 ingest、query、lint 和 output write-back。 |
+| [来源类型与采集状态](../schema/meta/source-types.md) | meta | active | 2 | 固定采集阶段的来源类型、证据等级、状态和单文档落盘规则。 |
+| [Source Card Template](../schema/templates/source-card.md) | template |  | 0 | 单文件原始采集文档模板，用于 `raw/sources/`。 |

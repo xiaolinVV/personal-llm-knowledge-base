@@ -24,6 +24,7 @@ source_refs:
 - `wiki/index.md`: 回答问题、入库或维护前先读，用它定位相关页面。
 - `wiki/log.md`: append-only 时间线，记录 migration、ingest、query、lint、output write-back。
 - `schema/meta/topic-map.md`: 判断主题边界。
+- `schema/meta/source-types.md`: 判断来源类型、证据等级、采集状态和图片本地化规则。
 - `schema/templates/`: 新 Markdown 文件模板。
 
 ## Ingest
@@ -31,10 +32,11 @@ source_refs:
 新资料入库时按这个顺序做：
 
 1. 判断材料是否只是线索、来源、已理解内容、研究问题、实验验证、输出成品或方法规则。
-2. 原始线索放 `raw/inbox/`；来源卡片、网页快照、本地素材和准不可变原始材料放 `raw/sources/<domain>/`。
-3. 已读懂的资料写入 `wiki/notes/<domain-or-topic>/`，必须用自己的中文重写，不贴长篇原文。
-4. 跨来源稳定判断写入 `wiki/topics/<domain>/`；问题驱动判断写入 `wiki/research/`；可运行验证写入 `wiki/labs/`。
-5. 每次 ingest 后更新 `wiki/index.md`，并向 `wiki/log.md` 追加 `## [YYYY-MM-DD] ingest | title`。
+2. 原始线索放 `raw/inbox/`；值得保存但未消化的来源默认采集成 `raw/sources/<domain>/<source-type>/<YYYY-MM-DD-title-slug>.md` 单个 Markdown 原始文档，必要图片放同名 `.assets/` 目录。
+3. 公众号文章和普通网页默认抓取正文 Markdown，并把正文图片下载到本地相对路径；视频采集委托 `video-to-wiki`，默认只做证据采集并生成一个视频来源文档；GitHub 项目默认只做轻量拆解，不克隆、不运行。
+4. 已读懂的资料写入 `wiki/notes/<domain-or-topic>/`，必须用自己的中文重写，不贴长篇原文。
+5. 跨来源稳定判断写入 `wiki/topics/<domain>/`；问题驱动判断写入 `wiki/research/`；可运行验证写入 `wiki/labs/`。
+6. 每次 ingest 后更新 `wiki/index.md`，并向 `wiki/log.md` 追加 `## [YYYY-MM-DD] ingest | title`。
 
 ## Query
 
