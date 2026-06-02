@@ -116,7 +116,9 @@ Obsidian 是这个知识库的可视化前端，不是另一套目录规则。
 ## Codex Skills
 
 - [knowledge-base-workflow](.codex/skills/knowledge-base-workflow/SKILL.md)：处理资料入库、分类、消化、升级、研究、输出回写时使用。
-- [video-study-notes](.codex/skills/video-study-notes/SKILL.md)：处理学习视频、字幕、评论、关键帧和视频笔记时使用。
+- [video-to-wiki](.codex/skills/video-to-wiki/SKILL.md)：处理学习视频证据采集、来源登记、标准 wiki 笔记编译和 index/log 回写时使用。
+
+兼容说明：`video-study-notes` 是旧名称，已经由 `video-to-wiki` 取代；后续不要新增旧名称引用。
 
 Obsidian 文件浏览器通常不会显示 `.codex/` 这种点号目录。为了可见性，仓库提供 [schema/skills/](schema/skills/README.md) 作为 `.codex/skills/` 的 symlink 入口；这不是副本，改动会落到真实 Skill 文件。
 

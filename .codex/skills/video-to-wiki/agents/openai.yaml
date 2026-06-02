@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video To Wiki"
+  short_description: "将学习视频登记为来源并编译成 Karpathy 式 LLM Wiki 笔记"
+  default_prompt: "Use $video-to-wiki to capture this learning video's evidence assets, create a source card, compile a standard Chinese wiki note, and update wiki index/log."

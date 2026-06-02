@@ -53,7 +53,7 @@ Do not create a new top-level directory for a theme. Create subdirectories under
 
 ## Special Cases
 
-- For learning videos or yt-dlp-supported URLs, also use the project `video-study-notes` skill. Store media assets under `raw/assets/local-media/`, old-compatible `local-media/`, or external paths; keep Git focused on Markdown, source cards, and final artifacts.
+- For learning videos or yt-dlp-supported URLs, also use the project `video-to-wiki` skill. Store evidence assets under `raw/assets/local-media/`, create source cards under `raw/sources/`, compile understanding under `wiki/notes/`, and keep Git focused on Markdown, source cards, and final artifacts. `video-study-notes` is the old skill name; do not add new references to it except compatibility notes.
 - For current APIs, SDKs, model behavior, laws, prices, or other unstable facts, verify against current primary sources before writing them as facts.
 - For high-risk actions such as shell execution outside a safe context, database writes, email, payment, deployment, or account actions, require explicit human review.
 - For old files, do not bulk-add metadata just for consistency. Add metadata only when revising, migrating, or upgrading the file.

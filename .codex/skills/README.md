@@ -11,7 +11,9 @@
 ## 当前 Skill
 
 - [knowledge-base-workflow](knowledge-base-workflow/SKILL.md)：资料入库、分类、消化、升级、研究、输出回写。
-- [video-study-notes](video-study-notes/SKILL.md)：学习视频下载、字幕/ASR、关键帧和中文 fieldbook 笔记。
+- [video-to-wiki](video-to-wiki/SKILL.md)：学习视频证据采集、来源登记、标准 wiki 笔记编译和 index/log 回写。
+
+兼容说明：`video-study-notes` 是旧名称，已经由 `video-to-wiki` 取代；后续不要新增旧名称引用。
 
 ## 规则
 

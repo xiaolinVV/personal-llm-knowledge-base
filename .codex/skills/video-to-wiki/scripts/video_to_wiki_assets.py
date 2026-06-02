@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Capture local assets for one learning video.
+"""Capture raw evidence assets for one learning video.
 
-The script handles the mechanical part of the video-study-notes workflow:
+The script handles the mechanical part of the video-to-wiki workflow:
 download media/subtitles/metadata, clean transcript text, split transcript by
-chapters, extract keyframes, and write a manifest for the note author.
+chapters, extract keyframes, and write a manifest for the source card and note.
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 
-DEFAULT_MEDIA_ROOT = Path("local-media/youtube")
+DEFAULT_MEDIA_ROOT = Path("raw/assets/local-media/youtube")
 DEFAULT_ASR_MODEL_ROOT = Path("local-media/models/whisper.cpp")
 DEFAULT_TOOL_ROOT = Path("local-media/tools")
 DEFAULT_ASR_MODEL = "base-q5_1"
@@ -772,14 +772,17 @@ def write_manifest(
         upload_date = f"{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:]}"
 
     lines = [
-        "# Video Study Asset Manifest",
+        "# Video-To-Wiki Asset Manifest",
+        "",
+        "## Source",
         "",
         f"- slug: `{slug}`",
-        f"- url: {url}",
-        f"- title: {info.get('title') or ''}",
+        f"- source_url: {url}",
+        f"- source_title: {info.get('title') or ''}",
         f"- channel: {info.get('channel') or info.get('uploader') or ''}",
         f"- upload_date: {upload_date}",
         f"- duration: {info.get('duration_string') or fmt_time(float(info.get('duration') or 0))}",
+        f"- asset_dir: `{directory}`",
         f"- proxy: {proxy or 'none'}",
         f"- subtitle_source: {subtitle_source(info, subtitle)}",
         "",
@@ -809,11 +812,11 @@ def write_manifest(
         "",
     ])
     if code_urls:
-        lines.extend(f"- {item}" for item in code_urls)
+        lines.extend(f"- candidate_code_links: {item}" for item in code_urls)
     elif mentions_repo:
-        lines.append("- Transcript mentions a code repository/source code, but no concrete URL was found in video metadata or description.")
+        lines.append("- candidate_code_links: transcript mentions a code repository/source code, but no concrete URL was found in video metadata or description.")
     else:
-        lines.append("- none found")
+        lines.append("- candidate_code_links: none found")
 
     lines.extend([
         "",
@@ -832,7 +835,7 @@ def write_manifest(
         "",
         "## Next Step",
         "",
-        "Use this manifest plus `transcript-clean.txt`, `chapter-transcript.md`, comments, and keyframes to write a fieldbook note.",
+        "Use this manifest to create a source card, then compile `transcript-clean.txt`, `chapter-transcript.md`, comments, and keyframes into a standard wiki note.",
     ])
 
     manifest = directory / "asset-manifest.md"

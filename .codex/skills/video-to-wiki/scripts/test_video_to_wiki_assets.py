@@ -4,10 +4,30 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-import video_study_assets as assets
+import video_to_wiki_assets as assets
 
 
 class AsrFallbackTests(unittest.TestCase):
+    def test_default_media_root_uses_raw_assets(self):
+        self.assertEqual(assets.DEFAULT_MEDIA_ROOT, Path("raw/assets/local-media/youtube"))
+
+        parser = assets.build_parser()
+        args = parser.parse_args(["capture", "https://example.test/video"])
+
+        self.assertEqual(args.media_root, "raw/assets/local-media/youtube")
+
+    def test_parser_preserves_explicit_old_compatible_media_root(self):
+        parser = assets.build_parser()
+
+        args = parser.parse_args([
+            "capture",
+            "https://example.test/video",
+            "--media-root",
+            "local-media/youtube",
+        ])
+
+        self.assertEqual(args.media_root, "local-media/youtube")
+
     def test_whisper_cli_path_finds_project_local_ubuntu_build(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -52,7 +72,8 @@ class AsrFallbackTests(unittest.TestCase):
             (build / "src").mkdir()
             (build / "ggml/src").mkdir(parents=True)
 
-            env = assets.whisper_runtime_env(str(cli), {"LD_LIBRARY_PATH": "/existing"})
+            with mock.patch.object(assets.sys, "platform", "linux"):
+                env = assets.whisper_runtime_env(str(cli), {"LD_LIBRARY_PATH": "/existing"})
 
             expected = f"{build / 'src'}:{build / 'ggml/src'}:/existing"
             self.assertEqual(env["LD_LIBRARY_PATH"], expected)
@@ -207,6 +228,39 @@ class AsrFallbackTests(unittest.TestCase):
 
             text = manifest.read_text(encoding="utf-8")
             self.assertIn("subtitle_source: local ASR fallback or manually supplied subtitle", text)
+            self.assertIn("source_url: https://example.test/video", text)
+            self.assertIn("source_title: Demo", text)
+            self.assertIn("asset_dir:", text)
+            self.assertIn("comments_digest: missing", text)
+
+    def test_manifest_includes_candidate_code_links(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp)
+            info = {
+                "title": "Demo",
+                "channel": "Channel",
+                "upload_date": "20250102",
+                "duration": 61,
+                "description": "Code: https://github.com/example/project",
+            }
+            (directory / "Demo [abc123].quicktime.info.json").write_text(json.dumps(info), encoding="utf-8")
+            (directory / "Demo [abc123].quicktime.mp4").write_bytes(b"video")
+
+            manifest = assets.write_manifest(
+                directory=directory,
+                url="https://example.test/video",
+                slug="demo",
+                proxy=None,
+                clean_path=None,
+                chapter_path=None,
+                contact=None,
+                comments_json=None,
+                comments_digest=None,
+                comments=[],
+            )
+
+            text = manifest.read_text(encoding="utf-8")
+            self.assertIn("candidate_code_links: https://github.com/example/project", text)
 
 
 class CodeUrlTests(unittest.TestCase):

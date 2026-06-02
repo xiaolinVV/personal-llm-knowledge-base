@@ -19,7 +19,7 @@ macOS with Homebrew:
 
 ```bash
 brew install yt-dlp ffmpeg whisper-cpp
-python3 .codex/skills/video-study-notes/scripts/video_study_assets.py preflight
+python3 .codex/skills/video-to-wiki/scripts/video_to_wiki_assets.py preflight
 ```
 
 Ubuntu with sudo:
@@ -34,7 +34,7 @@ cmake -S local-media/tools/whisper.cpp -B local-media/tools/whisper.cpp/build \
   -DGGML_NATIVE=OFF \
   -DGGML_OPENMP=OFF
 cmake --build local-media/tools/whisper.cpp/build --config Release -j"$(nproc)"
-python3 .codex/skills/video-study-notes/scripts/video_study_assets.py preflight
+python3 .codex/skills/video-to-wiki/scripts/video_to_wiki_assets.py preflight
 ```
 
 Ubuntu without sudo but with Docker:
@@ -47,7 +47,7 @@ docker run --rm \
   -w /src \
   ubuntu:24.04 \
   bash -lc 'apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates cmake build-essential git && cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_OPENMP=OFF && cmake --build build --config Release -j"$(nproc)"'
-python3 .codex/skills/video-study-notes/scripts/video_study_assets.py preflight
+python3 .codex/skills/video-to-wiki/scripts/video_to_wiki_assets.py preflight
 ```
 
 Expected preflight basics:
@@ -55,16 +55,16 @@ Expected preflight basics:
 - `yt-dlp`, `ffmpeg`, and `ffprobe` must exist.
 - `whisper-cli` should exist for ASR fallback. The helper detects PATH plus local builds at `local-media/tools/whisper.cpp/build/bin/whisper-cli` and compatible older build paths.
 - A local ASR model under `local-media/models/whisper.cpp/` is needed before ASR can run.
-- For project-local Linux builds, run ASR through `video_study_assets.py`; it adds the local `libwhisper`/`libggml` directories to the runtime environment. A bare `local-media/tools/whisper.cpp/build/bin/whisper-cli` command may fail unless `LD_LIBRARY_PATH` is set.
+- For project-local Linux builds, run ASR through `video_to_wiki_assets.py`; it adds the local `libwhisper`/`libggml` directories to the runtime environment. A bare `local-media/tools/whisper.cpp/build/bin/whisper-cli` command may fail unless `LD_LIBRARY_PATH` is set.
 
-`local-media/` should be ignored by Git. Keep Whisper binaries, models, generated audio, and downloaded media there.
+`local-media/` should be ignored by Git. Keep Whisper binaries and models there. Video evidence defaults to `raw/assets/local-media/youtube/<slug>/`, which is also ignored by Git.
 
 ## First ASR Run
 
 Preferred first run:
 
 ```bash
-python3 .codex/skills/video-study-notes/scripts/video_study_assets.py capture \
+python3 .codex/skills/video-to-wiki/scripts/video_to_wiki_assets.py capture \
   'VIDEO_URL' \
   --slug 'YYYY-MM-DD-channel-topic' \
   --asr-download-model
@@ -79,7 +79,7 @@ local-media/models/whisper.cpp/ggml-base-q5_1.bin
 If the video is already downloaded and only the transcript needs regeneration:
 
 ```bash
-python3 .codex/skills/video-study-notes/scripts/video_study_assets.py capture \
+python3 .codex/skills/video-to-wiki/scripts/video_to_wiki_assets.py capture \
   'VIDEO_URL' \
   --slug 'YYYY-MM-DD-channel-topic' \
   --skip-download \
@@ -124,6 +124,7 @@ curl -L --fail -C - --proxy http://127.0.0.1:PORT \
 ASR writes files next to the video:
 
 ```text
+raw/assets/local-media/youtube/<slug>/
 audio-16k.wav
 <video-title> [<id>].zh-Hans.srt
 <video-title> [<id>].zh-Hans.vtt
@@ -147,6 +148,7 @@ subtitle_source: local ASR fallback or manually supplied subtitle
 - Correct obvious ASR term errors in the study note, especially technical words like `Embedding`, `Vector`, `Recall`, `Re-ranking`, `Cross-Encoder`, `MTEB`.
 - Do not paste ASR transcript verbatim. Summarize and transform.
 - Add `未验证事项`: ASR transcript was not fully human-proofread.
+- If no standard subtitle, ASR transcript, or human-reviewed transcript exists, do not claim that the video has been fully digested.
 
 ## Failure Handling
 

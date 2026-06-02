@@ -38,4 +38,5 @@
 Obsidian 文件浏览器隐藏点号目录；可通过 `schema/skills/` 这个 symlink 入口查看同一批 Skill 文件。
 
 - 处理任意资料入库、分类、消化、升级、研究、输出回写时，优先使用项目内 `knowledge-base-workflow`。
-- 处理学习视频沉淀时，同时使用项目内 `video-study-notes`，并按三层结构判断产物落点：原始资产进 `raw/assets/local-media/` 或外部路径，资料消化进 `wiki/notes/`，稳定主题才升级到 `wiki/topics/`。
+- 处理学习视频沉淀时，同时使用项目内 `video-to-wiki`，并按三层结构判断产物落点：原始资产进 `raw/assets/local-media/` 或外部路径，来源卡片进 `raw/sources/`，资料消化进 `wiki/notes/`，稳定主题才升级到 `wiki/topics/`。
+- 兼容说明：`video-study-notes` 是旧名称，已经由 `video-to-wiki` 取代；后续不要新增旧名称引用。
