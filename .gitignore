@@ -12,27 +12,28 @@ build/
 .obsidian/
 *.log
 local-media/
+raw/assets/local-media/
 
-# Presentation generation intermediates. Keep final deliverables under outputs/
+# Presentation generation intermediates. Keep final deliverables under wiki/outputs/
 # trackable, but ignore scratch plans, slide modules, renders, layouts, assets,
 # and build manifests produced by the Presentations workflow.
-outputs/**/presentations/**/slides/
-outputs/**/presentations/**/preview/
-outputs/**/presentations/**/layout/
-outputs/**/presentations/**/assets/
-outputs/**/presentations/**/qa/
-outputs/**/presentations/**/node_modules/
-outputs/**/presentations/**/package.json
-outputs/**/presentations/**/build_*.mjs
-outputs/**/presentations/**/claim-spine.txt
-outputs/**/presentations/**/contact-sheet-plan.txt
-outputs/**/presentations/**/design-system.txt
-outputs/**/presentations/**/profile-plan.txt
-outputs/**/presentations/**/source-notes.txt
-outputs/**/presentations/**/reference-audit.txt
-outputs/**/presentations/**/data.json
-outputs/**/presentations/**/output/artifact-build-manifest.json
-outputs/**/presentations/**/output/slide-*.png
+wiki/outputs/**/presentations/**/slides/
+wiki/outputs/**/presentations/**/preview/
+wiki/outputs/**/presentations/**/layout/
+wiki/outputs/**/presentations/**/assets/
+wiki/outputs/**/presentations/**/qa/
+wiki/outputs/**/presentations/**/node_modules/
+wiki/outputs/**/presentations/**/package.json
+wiki/outputs/**/presentations/**/build_*.mjs
+wiki/outputs/**/presentations/**/claim-spine.txt
+wiki/outputs/**/presentations/**/contact-sheet-plan.txt
+wiki/outputs/**/presentations/**/design-system.txt
+wiki/outputs/**/presentations/**/profile-plan.txt
+wiki/outputs/**/presentations/**/source-notes.txt
+wiki/outputs/**/presentations/**/reference-audit.txt
+wiki/outputs/**/presentations/**/data.json
+wiki/outputs/**/presentations/**/output/artifact-build-manifest.json
+wiki/outputs/**/presentations/**/output/slide-*.png
 
 # Superseded full-page PNG roadmap draft. The editable deck is the deliverable.
-outputs/**/presentations/ai-agent-fieldbook-roadmap/
+wiki/outputs/**/presentations/ai-agent-fieldbook-roadmap/

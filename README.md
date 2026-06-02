@@ -1,153 +1,130 @@
 # personal-llm-knowledge-base
 
-这个仓库是一个个人 Karpathy 式 LLM Knowledge Base，用来把资料、想法、研究、实验和输出沉淀成长期可维护的 Markdown 知识系统。
-
-它不是 AI Agent 专项仓库，不是资料收藏夹，也不是纯代码实验室。AI Agent 仍然是核心主题之一，但它现在属于更大的 `ai` 领域。新的主线是：**用 LLM 把原始资料编译成可读、可改、可复用、可持续维护的知识文件，再通过输出反哺知识结构。**
+这个仓库是一个 Karpathy 式 LLM Wiki。目标不是收藏资料，而是让 LLM 把原始资料持续编译成可读、可复查、可维护、可输出的 Markdown 知识系统。
 
 核心判断很简单：
 
-- 知识库的价值不在于保存多少资料，而在于资料能不能被转化、复查、组合和输出。
-- 目录结构就是数据结构。原始资料、资料笔记、稳定知识、研究报告、实验代码和输出成品不能混在一层。
-- 第一版只使用 Git + Markdown + 清晰目录 + 模板 + 维护规则。不上来做向量库、RAG、知识图谱或复杂自动化。
-- 未验证的内容必须标注为未验证；LLM 总结不能冒充事实。
+- 来源不是知识。URL、网页、PDF、视频和截图只是证据入口。
+- Wiki 才是长期记忆。LLM 负责把来源读完、压缩、重写、交叉链接、更新旧判断。
+- Schema 是约束。没有明确协议，LLM 只会把文件越写越乱。
+- 不上来做复杂 RAG、向量库或知识图谱。第一版只用 Git + Markdown + Obsidian + 明确维护规则。
+- 未验证就不要声称完成。没有查来源、没有跑实验、没有复核，就写“未验证”。
 
-## 生命周期模型
-
-标准流转路径：
+## 三层结构
 
 ```text
-inbox/
-  -> sources/
-    -> notes/
-      -> knowledge/ 或 research/
-        -> labs/
-          -> outputs/
-            -> knowledge/ 和 methods/
+raw/
+  -> wiki/
+    -> schema/
 ```
 
 每一层只做一件事：
 
-- `inbox/`：临时入口。只放尚未处理的资料卡片、想法和待归档线索，不能长期堆积。
-- `sources/`：轻量来源索引。保存 URL、书籍、论文、视频、PDF、网页快照说明、外部路径和采集日期。大媒体和中间资产默认不进 Git。
-- `notes/`：资料消化层。视频、文章、书、课程、会议和聊天记录先变成自己的中文笔记。
-- `knowledge/`：稳定知识层。只放跨来源整理后的 evergreen 文档，要求可维护、可复用、可被未来输出调用。
-- `research/`：问题驱动研究。只有超出单篇资料消化、形成结构化判断的内容才进入这里。
-- `labs/`：验证层。只验证具体工程判断、API、SDK、工具链或失败模式，不为了看起来高级而写实验。
-- `methods/`：方法库。放模板、提示词、资料处理流程、复盘流程、维护规则和可复用工作法。
-- `outputs/`：成品层。放最终 PPT、报告、文章、方案等；每个新输出目录需要有 manifest 说明来源、目标和生成过程。
-- `meta/`：仓库治理层。放定位、主题地图、迁移记录、命名规则、质量标准和维护节奏。
-- `archive/`：历史归档层。只放不再维护但仍值得保留的旧结构、旧计划或废弃材料索引。
+- `raw/`：证据层。放待处理线索、来源卡片、网页快照、本地素材和准不可变原始材料。
+- `wiki/`：编译层。放 LLM 维护的资料笔记、稳定主题、研究、实验、输出、全局索引和日志。
+- `schema/`：规约层。放模板、Obsidian 视图、方法、迁移记录、主题地图和 agent protocol。
+
+标准流转路径：
+
+```text
+raw/inbox/
+  -> raw/sources/
+    -> wiki/notes/
+      -> wiki/topics/ 或 wiki/research/
+        -> wiki/labs/
+          -> wiki/outputs/
+            -> wiki/topics/ 和 schema/methods/
+```
 
 ## 顶层结构
 
 ```text
 .
 ├── 00-首页.md
-├── inbox/
-├── sources/
-│   └── ai/
-├── notes/
-│   ├── agent-systems/
-│   ├── llm-basics/
-│   ├── mcp-cli-browser/
-│   ├── openai/
-│   ├── rag/
-│   ├── ragflow/
-│   └── watchlists/
-├── knowledge/
-│   ├── ai/
-│   └── meta/
-├── research/
-│   ├── open-source-projects/
-│   └── use-cases/
-├── labs/
-│   ├── anthropic/
-│   └── openai/
-├── methods/
-│   ├── obsidian-icloud-github-sync.md
-│   └── templates/
-├── outputs/
-├── meta/
+├── AGENTS.md
+├── README.md
+├── raw/
+│   ├── inbox/
+│   └── sources/
+├── wiki/
+│   ├── index.md
+│   ├── log.md
+│   ├── notes/
+│   ├── topics/
+│   ├── research/
+│   ├── labs/
+│   ├── outputs/
+│   └── archive/
+├── schema/
+│   ├── agent-protocol.md
+│   ├── templates/
+│   ├── methods/
+│   ├── meta/
 │   └── obsidian/
-├── archive/
-└── docs/
+└── .codex/
 ```
 
-`docs/` 是旧入口兼容目录，不再新增内容。稳定文档已经迁移到 `meta/`、`sources/` 和 `knowledge/`。
-
-真实路径使用英文，方便 Git、Codex、命令行和 GitHub 长期维护。Obsidian 里的中文可读性由 [00-首页.md](00-首页.md)、MOC、主题地图和链接文本承担，不再依赖中文真实目录名。
+旧的 `inbox/`、`sources/`、`notes/`、`knowledge/`、`research/`、`labs/`、`methods/`、`outputs/`、`meta/`、`archive/`、`docs/` 顶层目录已经全量迁移并删除。迁移原因和映射见 [迁移记录](schema/meta/migration-log.md)。
 
 ## 快速入口
 
 - [Obsidian 首页](00-首页.md)
-- [仓库原则](meta/principles.md)
-- [主题地图](meta/topic-map.md)
-- [Obsidian 使用说明](meta/obsidian/README.md)
-- [迁移记录](meta/migration-log.md)
-- [Karpathy 式 LLM 知识库原则](knowledge/meta/karpathy-llm-knowledge-base-principles.md)
-- [AI 官方资料索引](sources/ai/official-resources.md)
-- [OpenAI Agent 技术栈](knowledge/ai/openai-stack.md)
-- [Anthropic / Claude Agent 技术栈](knowledge/ai/anthropic-stack.md)
-- [Agentic RAG 专题](knowledge/ai/rag/agentic-rag-from-basics-to-enterprise-practice.md)
-- [资料笔记](notes/README.md)
-- [研究报告](research/README.md)
-- [实验验证](labs/README.md)
-- [方法模板](methods/README.md)
-- [输出成品](outputs/README.md)
+- [Wiki Index](wiki/index.md)
+- [Wiki Log](wiki/log.md)
+- [Agent Protocol](schema/agent-protocol.md)
+- [主题地图](schema/meta/topic-map.md)
+- [Obsidian 使用说明](schema/obsidian/README.md)
+- [Knowledge Base](schema/obsidian/knowledge.base)
+- [AI 官方资料索引](raw/sources/ai/official-resources.md)
+- [OpenAI Agent 技术栈](wiki/topics/ai/openai-stack.md)
+- [Anthropic / Claude Agent 技术栈](wiki/topics/ai/anthropic-stack.md)
+- [Agentic RAG 专题](wiki/topics/ai/rag/agentic-rag-from-basics-to-enterprise-practice.md)
+- [资料笔记](wiki/notes/README.md)
+- [研究报告](wiki/research/README.md)
+- [实验验证](wiki/labs/README.md)
+- [方法库](schema/methods/README.md)
+- [输出成品](wiki/outputs/README.md)
+
+## 操作规则
+
+新增材料时先判断它处在哪一层，不要先想主题目录：
+
+| 问题 | 应放位置 |
+| --- | --- |
+| 只是一个待处理线索？ | `raw/inbox/` |
+| 只是来源和证据入口？ | `raw/sources/` |
+| 已经读过并转成自己的理解？ | `wiki/notes/` |
+| 跨来源、稳定、可复用？ | `wiki/topics/` |
+| 围绕一个问题形成判断？ | `wiki/research/` |
+| 需要跑代码验证判断？ | `wiki/labs/` |
+| 已经产出报告、PPT、文章或方案？ | `wiki/outputs/` |
+| 是可重复使用的方法？ | `schema/methods/` |
+| 是仓库规则、主题地图或迁移记录？ | `schema/meta/` |
+
+所有 ingest、query、lint 和 output write-back 都必须遵循 [Agent Protocol](schema/agent-protocol.md)，并更新 [Wiki Index](wiki/index.md) 和 [Wiki Log](wiki/log.md)。
 
 ## Obsidian 使用
 
 Obsidian 是这个知识库的可视化前端，不是另一套目录规则。
 
 - 打开 vault 后先看 [00-首页.md](00-首页.md)。
-- 浏览结构用 [生命周期 MOC](meta/obsidian/lifecycle-moc.md)。
-- 按主题找材料用 [主题 MOC](meta/obsidian/topic-moc.md)。
-- 做周/月复盘用 [复盘 MOC](meta/obsidian/review-moc.md)。
-- 需要筛选属性时用 [Knowledge Base](meta/obsidian/knowledge.base)。
+- 浏览结构用 [生命周期 MOC](schema/obsidian/lifecycle-moc.md)。
+- 按主题找材料用 [主题 MOC](schema/obsidian/topic-moc.md)。
+- 做周/月复盘用 [复盘 MOC](schema/obsidian/review-moc.md)。
+- 需要筛选属性时用 [Knowledge Base](schema/obsidian/knowledge.base)。
 
 ## Codex Skills
 
 - [knowledge-base-workflow](.codex/skills/knowledge-base-workflow/SKILL.md)：处理资料入库、分类、消化、升级、研究、输出回写时使用。
 - [video-study-notes](.codex/skills/video-study-notes/SKILL.md)：处理学习视频、字幕、评论、关键帧和视频笔记时使用。
 
-## 归档判断
-
-新增材料时先判断生命周期，不要先想主题目录：
-
-| 问题 | 应放位置 |
-| --- | --- |
-| 只是一个待处理线索？ | `inbox/` |
-| 只是来源和证据入口？ | `sources/` |
-| 已经读过并转成自己的理解？ | `notes/` |
-| 跨来源、稳定、可复用？ | `knowledge/` |
-| 围绕一个问题形成判断？ | `research/` |
-| 需要跑代码验证判断？ | `labs/` |
-| 已经产出报告、PPT、文章或方案？ | `outputs/` |
-| 是可重复使用的方法？ | `methods/` |
-| 是仓库规则、主题地图或迁移记录？ | `meta/` |
-
-如果一个文件看起来能放两个地方，优先按生命周期判断。主题只负责索引，不负责替代生命周期。
+Obsidian 文件浏览器通常不会显示 `.codex/` 这种点号目录。为了可见性，仓库提供 [schema/skills/](schema/skills/README.md) 作为 `.codex/skills/` 的 symlink 入口；这不是副本，改动会落到真实 Skill 文件。
 
 ## 轻量来源策略
 
-Git 主要保存：
+Git 主要保存 Markdown、来源卡片、少量关键附件、最终可复查成品和最小实验。
 
-- Markdown 知识文件；
-- 来源卡片和索引；
-- 少量关键附件；
-- 最终可复查成品；
-- 可运行的最小实验。
-
-Git 默认不保存：
-
-- 大视频；
-- 批量截图；
-- 完整网页资产；
-- ASR 中间产物；
-- 临时渲染文件；
-- 无 manifest 的生成中间件。
-
-本地大资产继续放 `local-media/` 或外部路径；`.gitignore` 已经忽略 `local-media/`。
+大视频、批量截图、完整网页资产、ASR 中间产物和临时渲染文件默认放 `raw/assets/local-media/`、旧兼容 `local-media/` 或外部路径；这些路径由 `.gitignore` 忽略。
 
 ## 内容质量线
 
@@ -160,4 +137,4 @@ Git 默认不保存：
 - 哪些结论已经验证；
 - 哪些事项仍未验证。
 
-新 Markdown 文件使用 `methods/templates/` 下的模板。旧文件不强制一次性补元数据，避免为了“整理”制造垃圾改动；在复查、迁移或升级时再补。
+新 Markdown 文件使用 `schema/templates/` 下的模板。旧文件不强制一次性补元数据，避免为了“整理”制造低价值 churn；在复查、迁移或升级时再补。

@@ -1,97 +1,41 @@
 # AGENTS.md
 
-本仓库是个人 Karpathy 式 LLM 知识库。目标不是收藏资料，而是把资料编译成可读、可复查、可维护、可输出的长期知识。
+本仓库是个人 Karpathy 式 LLM Wiki。根目录保留本文件作为 Codex 入口；完整维护规约见 [schema/agent-protocol.md](schema/agent-protocol.md)。
 
 ## 默认语言
 
 对话、学习笔记、研究记录和仓库说明默认使用中文。代码、命令、API 字段、英文原始标题和提交信息可以使用英文。
 
+## 三层结构
+
+- `raw/`: 证据层。放待处理线索、来源卡片、网页快照、本地素材和准不可变原始材料。
+- `wiki/`: 编译层。放 LLM 维护的资料笔记、稳定主题、研究、实验、输出、全局索引和日志。
+- `schema/`: 规约层。放模板、Obsidian 视图、方法、迁移记录、主题地图和 agent protocol。
+
+旧的生命周期顶层目录已经删除，不要再创建 `inbox/`、`sources/`、`notes/`、`knowledge/`、`research/`、`labs/`、`methods/`、`outputs/`、`meta/`、`archive/` 或 `docs/`。
+
 ## 核心原则
 
-- 生命周期优先，主题其次。先判断文件处于 `inbox/`、`sources/`、`notes/`、`knowledge/`、`research/`、`labs/`、`methods/`、`outputs/`、`meta/` 还是 `archive/`，再判断主题。
-- 顶层生命周期目录固定使用原始英文路径；子目录和文件名可以继续使用英文 slug 或中文标题，优先选择清晰、短、可维护的名字。Obsidian 中文可读性由 `00-首页.md`、MOC、主题地图和链接文本承担，不靠中文真实路径。
-- 官方资料优先。涉及 API、SDK、模型、产品行为、标准和工具能力时，优先核对官方文档；博客、视频和二手教程只能作为补充。
-- 不要把来源当知识。URL、PDF、网页和视频只是证据入口；必须经过理解、压缩、质疑和重写后才算知识。
+- 先判断层级，再判断主题。来源进 `raw/`，编译后的长期内容进 `wiki/`，规则和模板进 `schema/`。
+- 官方资料优先。涉及 API、SDK、模型、产品行为、标准和工具能力时，优先核对官方文档。
+- 不要把来源当知识。URL、PDF、网页、视频和截图只是证据入口；必须经过理解、压缩、质疑和重写后才算知识。
 - 不要把 LLM 总结当事实。关键结论必须保留来源，必要时回到原文、代码或实验核验。
-- 不要上来做复杂自动化。第一版坚持 Git + Markdown + 清晰目录 + 模板 + 维护规则。向量库、RAG、知识图谱和批量自动化必须先证明必要性。
+- 不要上来做复杂自动化。第一版坚持 Git + Markdown + Obsidian + 明确维护规则。
 - 未验证就不要声称完成。未跑实验、未查官方文档、未复核来源时，明确写“未验证”。
 - 高风险动作必须有人审：发邮件、改数据库、调用支付、部署、改线上配置、执行不受控 shell、写出仓库外文件。
 
-## 生命周期目录
+## 固定入口
 
-- `inbox/`: 临时入口，只放待处理线索和想法。不能长期堆积。
-- `sources/`: 轻量来源索引，保存 URL、书籍、论文、视频、PDF、网页快照说明、外部路径和采集日期。
-- `notes/`: 资料消化层。视频、文章、课程、概念、会议和聊天记录先变成自己的中文笔记。
-- `knowledge/`: 稳定知识层。只放跨来源、可维护、可复用的 evergreen 文档。
-- `research/`: 问题驱动研究。只放已经形成结构化判断的材料。
-- `labs/`: 验证层。只放能验证具体判断的最小实验，不做炫技项目。
-- `methods/`: 方法库。放模板、提示词、资料处理流程、复盘流程、维护规则和可复用工作法。
-- `outputs/`: 成品层。放 PPT、报告、文章、方案等最终输出；每个新输出目录需要 manifest。
-- `meta/`: 仓库治理层。放定位、主题地图、迁移记录、命名规则、质量标准和维护节奏。
-- `archive/`: 历史归档层。只放不再维护但仍值得保留的旧结构、旧计划或废弃材料索引。
-- `docs/`: 旧入口兼容目录，不再新增内容。
-
-## 主题边界
-
-本仓库允许覆盖所有个人知识，不限于 AI。首批一级主题见 `meta/topic-map.md`：
-
-- `ai`
-- `software-engineering`
-- `product-business`
-- `learning-research`
-- `life`
-- `reading`
-- `finance`
-- `health`
-- `misc`
-
-AI Agent 是 `ai` 领域下的核心主题，不再是仓库唯一边界。
-
-## 新文件要求
-
-新 Markdown 文件默认使用 `methods/templates/` 下的模板，并至少包含这些元数据：
-
-```yaml
----
-type:
-domain:
-status:
-created:
-updated:
-source_refs:
----
-```
-
-旧文件不强制一次性补齐元数据。只有在复查、迁移、升级或重写时补，避免低价值 churn。
-
-## 轻量来源策略
-
-Git 主要保存 Markdown、来源卡片、少量关键附件、最终可复查成品和最小实验。
-
-大视频、批量截图、完整网页资产、ASR 中间产物和临时渲染文件默认放 `local-media/` 或外部路径。`local-media/` 已在 `.gitignore` 中忽略。
-
-## AI 专项原则
-
-AI 相关研究继续遵守这些底线：
-
-- 先学官方原语，再学框架包装。
-- 先做单 Agent，再做多 Agent。
-- 先把工具调用、状态、追踪和评估弄清楚，再谈复杂 orchestration。
-- 每个实验必须能说明一个具体问题。
-- 不把官方文档、框架 demo、真实生产架构混为一谈。
-
-## 每次新增实验
-
-每个 lab 至少包含：
-
-- `README.md`: 目标、依赖、运行方式、验收标准。
-- 最小可运行代码。
-- 明确的验证命令。
-- 学习笔记或复盘链接。
+- `wiki/index.md`: 内容索引。回答问题或维护 wiki 前先读。
+- `wiki/log.md`: 时间线日志。ingest、query、lint、migration、output write-back 都要追加。
+- `schema/agent-protocol.md`: 维护协议。所有资料入库、查询、lint 和输出回写都按这里执行。
+- `schema/templates/`: 新 Markdown 文件模板。
+- `schema/meta/topic-map.md`: 主题地图。
 
 ## Skill 约定
 
-`.codex/skills/` 保留为可执行 Skill 配置。
+`.codex/skills/` 保留为可执行 Skill 配置，不迁入 `schema/`。
+Obsidian 文件浏览器隐藏点号目录；可通过 `schema/skills/` 这个 symlink 入口查看同一批 Skill 文件。
 
 - 处理任意资料入库、分类、消化、升级、研究、输出回写时，优先使用项目内 `knowledge-base-workflow`。
-- 处理学习视频沉淀时，同时使用项目内 `video-study-notes`，并按生命周期判断产物落点：原始资产进 `local-media/`，资料消化进 `notes/`，稳定主题才升级到 `knowledge/`。
+- 处理学习视频沉淀时，同时使用项目内 `video-study-notes`，并按三层结构判断产物落点：原始资产进 `raw/assets/local-media/` 或外部路径，资料消化进 `wiki/notes/`，稳定主题才升级到 `wiki/topics/`。
