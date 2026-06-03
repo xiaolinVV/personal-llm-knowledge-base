@@ -3,7 +3,7 @@ type: meta
 domain: meta
 status: active
 created: 2026-06-02
-updated: 2026-06-02
+updated: 2026-06-03
 source_refs:
   - ../../schema/agent-protocol.md
   - ../../schema/templates/source-card.md
@@ -27,6 +27,8 @@ raw/sources/<domain>/<source-type>/<YYYY-MM-DD-title-slug>.assets/
 ```
 
 Markdown 文档同时保存来源元数据、原始内容、采集日志和未验证事项。它属于 `raw/` 证据层，不是 `wiki/` 知识。
+
+公众号文章和普通网页采集默认必须保存原始正文 Markdown 和必要图片资产；摘要只能作为附加说明，不能替代 `原始内容`。只有用户明确要求 `metadata-only`、`summary-only`、轻量采集，或正文采集失败时，才允许不保存正文。任何不保存正文的情况都必须在 `capture_status`、`采集日志` 和 `未验证事项` 中写明原因。
 
 默认不要创建 `source.md`、`snapshot.md`、`metadata.json`、`capture-log.md`。只有复杂机器处理场景才允许额外保留 JSON 或 manifest，例如视频 `asset-manifest.md`。
 
@@ -129,16 +131,18 @@ failed
 ```
 
 - `success`: 正文、关键元数据和必要资产采集完成。
-- `partial`: 主体可用，但字段、图片、附件或转写有缺失。
+- `partial`: 主体可用，但字段、图片、附件或转写有缺失；如果公众号或网页没有保存正文，必须是用户明确要求轻量采集或正文采集失败。
 - `failed`: 无可用原始内容，只保留来源入口和失败原因。
 
-## 图片本地化
+## 正文与图片本地化
 
-公众号文章和网页文章默认下载正文图片：
+公众号文章和网页文章默认保存原始正文 Markdown，并下载正文图片：
 
+- `原始内容` 必须放抓取、导入或转换后的正文 Markdown。摘要、内容提要、模型概括和采集说明都不能替代正文。
 - 正文图片保存到 `<slug>.assets/images/001.<ext>` 这类顺序文件名。
 - 封面图保存到 `<slug>.assets/cover.<ext>`。
 - Markdown 必须引用本地相对路径。
 - 跳过头像、站点 logo、分享图标、tracking pixel 和统计脚本图片。
 - 正文里的广告、二维码、作者名片默认保留，并在 `采集日志` 标注可能不是正文内容。
 - 下载失败时保留 Markdown 占位和失败记录，不能伪装成完整抓取。
+- 只有 `metadata-only`、`summary-only`、轻量采集或正文采集失败，才允许 `原始内容` 缺正文；这不是默认行为。

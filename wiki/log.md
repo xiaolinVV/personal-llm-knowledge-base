@@ -89,3 +89,14 @@ source_refs:
 - 未运行文章中的 Prompt 或 `hv-analysis` Skill。
 - 未核验 GitHub 仓库、Skill 能力、arXiv 查询能力、PDF 输出能力或示例研究报告质量。
 - 本次为来源收集，不生成 `wiki/notes/`、`wiki/research/` 或稳定方法论结论。
+
+## [2026-06-03] method | 强化公众号和网页正文采集规则
+
+- 强化 `knowledge-base-workflow`：公众号文章和普通网页默认必须保存原始正文 Markdown 和必要图片资产；摘要只能作为附加说明，不能替代 `原始内容`。
+- 更新 `schema/agent-protocol.md`：Ingest 规则明确只有用户要求 `metadata-only`、`summary-only`、轻量采集，或正文采集失败时，才允许不保存正文。
+- 更新 `schema/meta/source-types.md`：补充正文与图片本地化硬约束，并要求不保存正文时在 `capture_status`、`采集日志` 和 `未验证事项` 写明原因。
+- 更新 `schema/templates/source-card.md` 和 `raw/sources/README.md`：模板和来源入口同步强调摘要不能替代正文。
+
+未验证事项：
+
+- 本次只强化规则，没有重新采集此前两篇微信公众号文章的正文和图片。

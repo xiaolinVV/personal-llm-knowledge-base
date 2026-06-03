@@ -19,7 +19,9 @@ raw/sources/<domain>/<source-type>/<YYYY-MM-DD-title-slug>.assets/
   images/
 ```
 
-公众号文章和普通网页的正文图片默认下载到同名 `.assets/` 目录，并在 Markdown 中使用相对路径引用。Git 保存原始采集文档和少量关键附件。大视频、完整网页资产、批量截图、ASR 中间产物和下载缓存放 `raw/assets/local-media/`、旧兼容 `local-media/` 或外部路径。
+公众号文章和普通网页默认保存原始正文 Markdown，并把正文图片下载到同名 `.assets/` 目录，在 Markdown 中使用相对路径引用。摘要只能作为附加说明，不能替代 `原始内容`。只有用户明确要求 `metadata-only`、`summary-only`、轻量采集，或正文采集失败时，才允许不保存正文，并必须在采集日志里写明原因。
+
+Git 保存原始采集文档和少量关键附件。大视频、完整网页资产、批量截图、ASR 中间产物和下载缓存放 `raw/assets/local-media/`、旧兼容 `local-media/` 或外部路径。
 
 新增原始采集文档使用 [source-card 模板](../../schema/templates/source-card.md)。
 来源类型和采集状态见 [source-types](../../schema/meta/source-types.md)。

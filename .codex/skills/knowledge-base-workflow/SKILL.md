@@ -46,6 +46,8 @@ raw/sources/<domain>/<source-type>/<YYYY-MM-DD-title-slug>.assets/
 - Do not create `source.md`, `snapshot.md`, `metadata.json`, or `capture-log.md` by default.
 - The same-name `.assets/` directory is optional and only needed for local images or small evidence assets.
 - Large video/audio/ASR/bulk screenshots stay under `raw/assets/local-media/` or an external path and are linked from the source document.
+- For WeChat articles and web articles, default capture must save the original body as Markdown under `原始内容` and localize necessary images. A summary may be added as auxiliary context, but it must never replace `原始内容`.
+- Only skip the original body when the user explicitly asks for `metadata-only`, `summary-only`, or lightweight capture, or when capture fails. In those cases, mark the reason in `capture_status`, `采集日志`, and `未验证事项`.
 
 If capture fails, still create one source document with `status: capture_failed`, the original URL or path, the failure reason, and the next action. Do not silently drop a source.
 
@@ -60,11 +62,12 @@ Use `schema/meta/source-types.md` for source type, evidence level, media format,
 For `mp.weixin.qq.com` links, use the `wechat-article-extractor` skill when available.
 
 1. Extract title, author, account, publish time, cover image URL, original URL, source URL, and HTML content.
-2. Create one Markdown source document named from the article title.
+2. Convert the article body to Markdown and save it under `原始内容`. Do not replace the body with a summary.
 3. Download cover image to `<slug>.assets/cover.<ext>` when available.
 4. Extract body images, download them to `<slug>.assets/images/`, and rewrite the Markdown body to local relative paths.
 5. Mark `source_type: wechat_article`, `source_level: secondary`, and `media_format: html`.
 6. Record deleted, expired, rate-limited, blocked, or image-download failures in the document's `采集日志`.
+7. Add `内容提要` only as an optional auxiliary section. It is not evidence and cannot stand in for `原始内容`.
 
 ### Web Articles and Official Docs
 
@@ -73,6 +76,7 @@ For normal web pages, extract title, author, publish time, canonical URL, main c
 - For ordinary blogs/media pages, mark `source_type: web_article` and `source_level: secondary`.
 - For official product/API/SDK docs, mark `source_type: official_doc` and `source_level: primary`.
 - For unstable facts such as APIs, SDKs, model behavior, prices, laws, or product behavior, add a "需要核验的事实" item requiring current primary-source verification before any wiki claim.
+- For web articles, `原始内容` must contain the captured article body Markdown by default. A summary-only document is allowed only when explicitly requested or when the page cannot be captured.
 
 ### Image Localization
 
